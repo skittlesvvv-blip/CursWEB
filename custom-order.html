@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СДЕЛАНО НА ЗАКАЗ | SCÀLA</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/custom-order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+<header class="catalog-header">
+    <div class="catalog-header__top">
+        
+        <!-- Язык -->
+        <div class="catalog-header__lang">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <span class="lang-sep">—</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        
+        <!-- Логотип -->
+        <div class="catalog-header__logo">
+            <a href="index.html">SCÁLA</a>
+        </div>
+        
+        <!-- Иконки (десктоп) -->
+        <div class="catalog-header__icons" id="desktopIcons">
+            <button class="header-icon" id="theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon login-link" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="account.html" class="header-icon account-link" title="Личный кабинет" style="display: none;">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cartCount" class="badge">0</span>
+            </a>
+        </div>
+
+        <!-- Кнопка бургер (мобильная) -->
+        <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    
+    <!-- Навигация -->
+    <nav class="catalog-header__nav">
+        <ul>
+            <li><a href="catalog.html" data-i18n="nav_catalog">КАТАЛОГ</a></li>
+            <li><a href="about.html" data-i18n="nav_about">О НАС</a></li>
+            <li><a href="delivery.html" data-i18n="nav_delivery">ДОСТАВКА И ОПЛАТА</a></li>
+            <li><a href="custom-order.html" data-i18n="nav_custom">СДЕЛАНО НА ЗАКАЗ</a></li>
+        </ul>
+    </nav>
+
+   <!-- МОБИЛЬНОЕ МЕНЮ (компактное, справа сверху) -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__content">
+        <div class="mobile-menu__icons">
+            <button class="header-icon" id="mobile-theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="mobile-a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="mobileCartCount" class="badge">0</span>
+            </a>
+        </div>
+    </div>
+</div>
+</header>
+<!-- ===== КОНЕЦ ШАПКИ ===== -->
+
+    <!-- Хлебные крошки -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html" data-i18n="btn_home">ГЛАВНАЯ</a> <span>/</span> <span data-i18n="custom_title">СДЕЛАНО НА ЗАКАЗ</span>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="custom-content">
+        <div class="container">
+
+            <h1 class="page-title" data-i18n="custom_title">СДЕЛАНО НА ЗАКАЗ</h1>
+
+            <p class="custom-text" data-i18n="custom_intro">
+                Наш опыт, экспертиза и доступ к лучшим итальянским материалам позволяют нам создать любую модель персонально для вас — от разработки дизайна до выбора материалов и фурнитуры.
+            </p>
+
+            <p class="custom-text-highlight" data-i18n="custom_highlight">
+                СУМКА СТАНОВИТСЯ УНИКАЛЬНЫМ И ЛИЧНЫМ АКСЕССУАРОМ, ПОДЧЕРКИВАЮЩИМ ИНДИВИДУАЛЬНОСТЬ ЖЕНЩИНЫ, КОТОРАЯ ЕЕ НОСИТ.
+            </p>
+
+            <!-- Галерея эскизов -->
+            <div class="sketches-gallery">
+                <div class="sketch-item">
+                    <img src="images/custom-order/craft-1.jpg" alt="Эскиз 1">
+                </div>
+                <div class="sketch-item">
+                    <img src="images/custom-order/craft-2.jpg" alt="Эскиз 2">
+                </div>
+                <div class="sketch-item">
+                    <img src="images/custom-order/craft-3.jpg" alt="Эскиз 3">
+                </div>
+            </div>
+
+            <p class="custom-text" data-i18n="custom_personalization">
+                Вся наша продукция изготавливается на фабрике в Италии, поэтому мы можем выполнить любой запрос наших клиентов. Каждая сделанная на заказ сумка будет персонализирована инициалами клиента.
+            </p>
+            <!-- Цитата -->
+            <section class="quote-section">
+                <div class="quote-box">
+                    <h2 class="quote-text" data-i18n="custom_quote">НАША ЦЕЛЬ — СОЗДАНИЕ<br>УНИКАЛЬНОГО ПРОДУКТА</h2>
+                </div>
+            </section>
+            <!-- Форма заявки -->
+            <section class="custom-order-form-section">
+                <h2 class="form-title" data-i18n="custom_form_title">ОСТАВЬТЕ ЗАЯВКУ</h2>
+                <p class="form-desc" data-i18n="custom_form_desc">Заполните форму ниже, и наш менеджер свяжется с вами для обсуждения деталей.</p>
+
+                <form id="customOrderFormEl" class="custom-form">
+                    <div class="form-group">
+                        <label data-i18n="form_name">Имя *</label>
+                        <input type="text" id="customName" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-i18n="form_email">E-mail *</label>
+                        <input type="email" id="customEmail" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-i18n="form_phone">Телефон *</label>
+                        <input type="tel" id="customPhone" required placeholder="+375(29)1234567">
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-i18n="form_description">Описание вашего заказа *</label>
+                        <textarea id="customDescription" rows="5" required></textarea>
+                        <span class="error-message" id="descError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-i18n="form_sketch">Эскиз или референс (необязательно)</label>
+                        <input type="file" id="customSketch" accept="image/*,.pdf">
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="customAgree" required>
+                            <span data-i18n="form_agree">Я согласен на обработку персональных данных</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit" data-i18n="btn_submit_custom">ОТПРАВИТЬ ЗАЯВКУ</button>
+                    <p class="success-message" id="successMessage" style="display:none;" data-i18n="custom_success">✅ Спасибо! Ваша заявка принята.</p>
+                </form>
+            </section>
+
+
+
+            <p class="custom-text">
+                Более подробную информацию вы можете получить, написав на <a href="mailto:info@scalabag.com">info@scalabag.com</a>
+            </p>
+
+        </div>
+    </main>
+    <!-- ===== СЛАЙДЕР С ПАГИНАЦИЕЙ (ВСТАВЛЯТЬ В HTML) ===== -->
+<section class="order-slider">
+    <div class="slider-container">
+        
+        <!-- Сами фото (Слайды) -->
+        <div class="slider-track" id="sliderTrack">
+            <div class="slide active">
+                <img src="images/custom-order/slide-1.jpg" alt="Пример работы 1">
+            </div>
+            <div class="slide">
+                <img src="images/custom-order/slide-2.jpg" alt="Пример работы 2">
+            </div>
+            <div class="slide">
+                <img src="images/custom-order/slide-3.jpg" alt="Пример работы 3">
+            </div>
+        </div>
+
+        <!-- Пагинация (Точки внизу) -->
+        <div class="slider-dots" id="sliderDots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+    </div>
+</section>
+  <!-- ===== ФУТЕР ===== -->
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__col footer__col--left">
+                    <div class="footer__line"></div>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-i18n="footer_exchange">ОБМЕН И ВОЗВРАТ</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_warranty">ГАРАНТИЯ И УХОД</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_gift">ПОДАРОЧНАЯ КАРТА</a></li>
+                    </ul>
+                </div>
+                <div class="footer__center">
+                    <img src="images/main/footer-logo-s.png" alt="S Logo" class="footer__logo-img">
+                    <p class="footer__subscribe-text" data-i18n="footer_subscribe">ПОДПИШИТЕСЬ, ЧТОБЫ ПОЛУЧАТЬ ОБНОВЛЕНИЯ, ДОСТУП К ЭКСКЛЮЗИВНЫМ ПРЕДЛОЖЕНИЯМ</p>
+                    <form class="footer__form" action="#" method="POST">
+                        <input type="email" name="email" placeholder="NAME@EMAIL.COM" class="footer__input" required data-i18n="footer_email_placeholder">
+                        <button type="submit" class="footer__btn" data-i18n="footer_subscribe_btn">ПОДПИСАТЬСЯ</button>
+                    </form>
+                    <div class="footer__socials">
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__col footer__col--right">
+                    <div class="footer__line"></div>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-i18n="footer_contacts">КОНТАКТЫ</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_offer">ПУБЛИЧНАЯ ОФЕРТА</a></li>
+                        <li><a href="vacancies.html" class="footer__link">ВАКАНСИИ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <!-- ===== КОНЕЦ ФУТЕРА ===== -->
+
+
+    </div> <!-- ✅ КОНЕЦ .page-wrapper -->
+
+
+    <!-- Кнопка чата -->
+    <button class="chat-btn" aria-label="Чат">💬</button>
+  <!-- 4. Уведомления -->
+    <div id="notification" class="notification" role="alert" aria-live="polite" style="display:none;">
+        <span id="notificationText"></span>
+        <button class="notification__close" aria-label="Закрыть">&times;</button>
+    </div>
+
+    <!-- ===== ПОДКЛЮЧЕНИЕ СКРИПТОВ (порядок ВАЖЕН!) ===== -->
+    <!-- Скрипты -->
+     <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/vacancies.js"></script>
+    <script src="js/main.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('customOrderFormEl');
+        if (!form) return;
+        
+        // Валидация в реальном времени
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', () => {
+                const errorEl = document.getElementById(input.id.replace('custom', '') + 'Error');
+                if (errorEl) errorEl.classList.remove('show');
+                input.classList.remove('input-error');
+            });
+        });
+        
+        // Обработчик отправки формы
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Валидация всех полей
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!validateField(input)) isValid = false;
+            });
+            
+            // Проверка согласия
+            const agree = document.getElementById('customAgree');
+            const agreeError = document.getElementById('agreeError');
+            if (!agree.checked) {
+                agreeError.textContent = window.i18n?.t?.('error_agree') || 'Необходимо согласие';
+                agreeError.classList.add('show');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                showNotification?.(window.i18n?.t?.('error_form') || 'Пожалуйста, исправьте ошибки в форме');
+                return;
+            }
+            
+            // Сбор данных
+            const formData = {
+                id: Date.now(),
+                name: document.getElementById('customName').value.trim(),
+                email: document.getElementById('customEmail').value.trim(),
+                phone: document.getElementById('customPhone').value.trim(),
+                description: document.getElementById('customDescription').value.trim(),
+                sketch: document.getElementById('customSketch').files[0]?.name || null,
+                status: 'new',
+                date: new Date().toISOString().split('T')[0],
+                userId: Auth?.getCurrentUser?.()?.id || null
+            };
+            
+            try {
+                // Сохранение в JSON Server (или localStorage для демо)
+                if (typeof Storage !== 'undefined') {
+                    const orders = Storage.get('scala_customOrders') || [];
+                    orders.push(formData);
+                    Storage.set('scala_customOrders', orders);
+                }
+                
+                // Показать сообщение об успехе
+                document.getElementById('successMessage').style.display = 'block';
+                form.reset();
+                form.scrollIntoView({ behavior: 'smooth' });
+                
+                showNotification?.(window.i18n?.t?.('custom_success') || 'Заявка отправлена!');
+                
+            } catch (err) {
+                console.error('Ошибка отправки заявки:', err);
+                showNotification?.(window.i18n?.t?.('error_submit') || 'Ошибка отправки. Попробуйте позже.');
+            }
+        });
+        
+        // Функция валидации поля
+        function validateField(input) {
+            const value = input.value.trim();
+            const errorEl = document.getElementById(input.id.replace('custom', '') + 'Error');
+            let isValid = true;
+            
+            if (!value && input.required) {
+                errorEl.textContent = window.i18n?.t?.('error_required') || 'Обязательное поле';
+                isValid = false;
+            } else if (input.pattern && value && !new RegExp(input.pattern).test(value)) {
+                if (input.type === 'email') {
+                    errorEl.textContent = window.i18n?.t?.('error_email') || 'Некорректный email';
+                } else if (input.type === 'tel') {
+                    errorEl.textContent = window.i18n?.t?.('error_phone') || 'Формат: +375(29)1234567';
+                } else {
+                    errorEl.textContent = window.i18n?.t?.('error_format') || 'Неверный формат';
+                }
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                errorEl.classList.add('show');
+                input.classList.add('input-error');
+            } else {
+                errorEl.classList.remove('show');
+                input.classList.remove('input-error');
+            }
+            
+            return isValid;
+        }
+    });
+       let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Функция переключения слайдов по клику на точку
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+        
+        // Если слайдов нет, выходим
+        if (slides.length === 0) return;
+
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        
+        // Скрываем все слайды
+        for (i = 0; i < slides.length; i++) {
+            slides[i].className = slides[i].className.replace(" active", "");
+            // Убираем класс active полностью
+            slides[i].classList.remove("active"); 
+        }
+        
+        // Убираем активность с точек
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+            dots[i].classList.remove("active");
+        }
+        
+        // Показываем нужный слайд и точку
+        slides[slideIndex-1].classList.add("active");
+        dots[slideIndex-1].classList.add("active");
+    }
+
+    // АВТОМАТИЧЕСКАЯ ПРОКРУТКА (каждые 4 секунды)
+    setInterval(function() {
+        slideIndex++;
+        showSlides(slideIndex);
+    }, 4000);
+
+</script>
+</body>
+</html>

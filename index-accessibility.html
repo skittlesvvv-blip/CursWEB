@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCÀLA | Версия для слабовидящих</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/accessibility-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="accessibility-mode">
+
+    <!-- Панель управления доступностью -->
+    <div class="a11y-panel" id="a11yPanel">
+        <div class="a11y-panel__container">
+            <div class="a11y-group">
+                <span class="a11y-label" data-i18n="a11y_font_label">Размер шрифта:</span>
+                <button onclick="setFontSize('small')" class="a11y-btn" data-size="small" data-i18n="a11y_font_small">A</button>
+                <button onclick="setFontSize('medium')" class="a11y-btn active" data-size="medium" data-i18n="a11y_font_medium">A+</button>
+                <button onclick="setFontSize('large')" class="a11y-btn" data-size="large" data-i18n="a11y_font_large">A++</button>
+            </div>
+            <div class="a11y-group">
+                <span class="a11y-label" data-i18n="a11y_scheme_label">Цветовая схема:</span>
+                <button onclick="setColorScheme('white-black')" class="a11y-btn active" data-scheme="white-black" data-i18n="a11y_scheme_white">⚪</button>
+                <button onclick="setColorScheme('black-white')" class="a11y-btn" data-scheme="black-white" data-i18n="a11y_scheme_black">⚫⚪</button>
+                <button onclick="setColorScheme('blue-darkblue')" class="a11y-btn" data-scheme="blue-darkblue" data-i18n="a11y_scheme_blue">🔵🟦</button>
+            </div>
+            <div class="a11y-group">
+                <button onclick="toggleImages()" class="a11y-btn" id="btnToggleImages" data-i18n="a11y_images_toggle">🖼️ Изображения</button>
+                <a href="index.html" class="a11y-btn a11y-back" data-i18n="a11y_back">← Обычная версия</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Упрощенная шапка -->
+    <header class="a11y-header">
+        <div class="a11y-header__container">
+            <h1 class="a11y-logo">SCÀLA</h1>
+            <nav class="a11y-nav">
+                
+                <a href="index-accessibility.html" class="active" data-i18n="nav_main">Главная</a>
+                <a href="catalog-accessibility.html" data-i18n="nav_catalog">Каталог</a>
+                <a href="about-accessibility.html" data-i18n="nav_about">О нас</a>
+                <a href="login.html" data-i18n="login_title">Вход</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="a11y-content">
+        <div class="a11y-container">
+            
+            <!-- Hero -->
+            <section class="a11y-section">
+                <h2 class="a11y-heading">Брендовые сумки ручной работы из Италии</h2>
+                <p class="a11y-text">
+                    Каждая сумка SCÀLA создается мастерами в Италии с использованием премиальных материалов. 
+                    Мы предлагаем эксклюзивные модели из кожи рептилий, а также возможность создания сумки по индивидуальному эскизу.
+                </p>
+                <a href="catalog-accessibility.html" class="a11y-button">Перейти в каталог</a>
+            </section>
+
+            <!-- Преимущества -->
+            <section class="a11y-section">
+                <h3 class="a11y-subheading">Наши преимущества</h3>
+                <ul class="a11y-list">
+                    <li>Ручная работа итальянских мастеров</li>
+                    <li>Премиальные материалы: кожа питона, крокодила</li>
+                    <li>Бесплатная доставка по Беларуси</li>
+                    <li>Гарантия качества 2 года</li>
+                    <li>Возможность создания сумки по вашему эскизу</li>
+                </ul>
+            </section>
+
+            <!-- Контакты -->
+            <section class="a11y-section">
+                <h3 class="a11y-subheading">Контакты</h3>
+                <p class="a11y-text">
+                    <strong>Телефон:</strong> <a href="tel:+375292178828" class="a11y-link">+375 (29) 217-88-28</a><br>
+                    <strong>Email:</strong> <a href="mailto:info@scalabag.com" class="a11y-link">info@scalabag.com</a><br>
+                    <strong>Адрес:</strong> г. Минск, ул. Примерная, 10
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+     <!-- ===== ФУТЕР ===== -->
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__col footer__col--left">
+                    <div class="footer__line"></div>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-i18n="footer_exchange">ОБМЕН И ВОЗВРАТ</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_warranty">ГАРАНТИЯ И УХОД</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_gift">ПОДАРОЧНАЯ КАРТА</a></li>
+                    </ul>
+                </div>
+                <div class="footer__center">
+                    <img src="images/main/footer-logo-s.png" alt="S Logo" class="footer__logo-img">
+                    <p class="footer__subscribe-text" data-i18n="footer_subscribe">ПОДПИШИТЕСЬ, ЧТОБЫ ПОЛУЧАТЬ ОБНОВЛЕНИЯ, ДОСТУП К ЭКСКЛЮЗИВНЫМ ПРЕДЛОЖЕНИЯМ</p>
+                    <form class="footer__form" action="#" method="POST">
+                        <input type="email" name="email" placeholder="NAME@EMAIL.COM" class="footer__input" required data-i18n="footer_email_placeholder">
+                        <button type="submit" class="footer__btn" data-i18n="footer_subscribe_btn">ПОДПИСАТЬСЯ</button>
+                    </form>
+                    <div class="footer__socials">
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__col footer__col--right">
+                    <div class="footer__line"></div>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-i18n="footer_contacts">КОНТАКТЫ</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_offer">ПУБЛИЧНАЯ ОФЕРТА</a></li>
+                       <li><a href="vacancies.html" class="footer__link">ВАКАНСИИ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <!-- ===== КОНЕЦ ФУТЕРА ===== -->
+
+
+
+    <!-- Кнопка чата -->
+    <button class="chat-btn" aria-label="Открыть чат поддержки">
+        <svg viewBox="0 0 24 12" width="24" height="12">
+            <circle cx="4" cy="6" r="2" fill="#ffffff"/>
+            <circle cx="12" cy="6" r="2" fill="#ffffff"/>
+            <circle cx="20" cy="6" r="2" fill="#ffffff"/>
+        </svg>
+    </button>
+
+     <!-- Скрипты -->
+      <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/vacancies.js"></script>
+    <script src="js/main.js"></script>
+<script>
+        // Сохранение настроек
+        function saveSettings() {
+            const settings = {
+                fontSize: document.querySelector('.a11y-btn[data-size].active')?.dataset.size || 'medium',
+                colorScheme: document.querySelector('.a11y-btn[data-scheme].active')?.dataset.scheme || 'white-black',
+                imagesHidden: document.body.classList.contains('images-hidden')
+            };
+            localStorage.setItem('scala_a11y_settings', JSON.stringify(settings));
+        }
+
+        // Загрузка настроек
+        function loadSettings() {
+            const saved = localStorage.getItem('scala_a11y_settings');
+            if (saved) {
+                const settings = JSON.parse(saved);
+                setFontSize(settings.fontSize, false);
+                setColorScheme(settings.colorScheme, false);
+                if (settings.imagesHidden) document.body.classList.add('images-hidden');
+            }
+        }
+
+        // Размер шрифта
+        function setFontSize(size, save = true) {
+            document.body.classList.remove('font-small', 'font-medium', 'font-large');
+            document.body.classList.add(`font-${size}`);
+            document.querySelectorAll('.a11y-btn[data-size]').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.size === size);
+            });
+            if (save) saveSettings();
+        }
+
+        // Цветовая схема
+        function setColorScheme(scheme, save = true) {
+            document.body.classList.remove('scheme-white-black', 'scheme-black-white', 'scheme-blue-darkblue');
+            document.body.classList.add(`scheme-${scheme}`);
+            document.querySelectorAll('.a11y-btn[data-scheme]').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.scheme === scheme);
+            });
+            if (save) saveSettings();
+        }
+
+        // Изображения
+        function toggleImages() {
+            document.body.classList.toggle('images-hidden');
+            const btn = document.getElementById('btnToggleImages');
+            btn.textContent = document.body.classList.contains('images-hidden') ? '🖼️ Показать изображения' : '🖼️ Скрыть изображения';
+            saveSettings();
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSettings();
+            
+            // Если изображения скрыты - добавить пояснения
+            if (document.body.classList.contains('images-hidden')) {
+                document.querySelectorAll('img').forEach(img => {
+                    if (!img.nextElementSibling?.classList.contains('img-alt-text')) {
+                        const altText = document.createElement('span');
+                        altText.className = 'img-alt-text';
+                        altText.textContent = `[Изображение: ${img.alt || 'Фото товара'}]`;
+                        img.parentNode.insertBefore(altText, img.nextSibling);
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Найди свою сумку | SCÀLA</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+<header class="catalog-header">
+    <div class="catalog-header__top">
+        
+        <!-- Язык -->
+        <div class="catalog-header__lang">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <span class="lang-sep">—</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        
+        <!-- Логотип -->
+        <div class="catalog-header__logo">
+            <a href="index.html">SCÁLA</a>
+        </div>
+        
+        <!-- Иконки (десктоп) -->
+        <div class="catalog-header__icons" id="desktopIcons">
+            <button class="header-icon" id="theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon login-link" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="account.html" class="header-icon account-link" title="Личный кабинет" style="display: none;">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cartCount" class="badge">0</span>
+            </a>
+        </div>
+
+        <!-- Кнопка бургер (мобильная) -->
+        <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    
+    <!-- Навигация -->
+    <nav class="catalog-header__nav">
+        <ul>
+            <li><a href="catalog.html" data-i18n="nav_catalog">КАТАЛОГ</a></li>
+            <li><a href="about.html" data-i18n="nav_about">О НАС</a></li>
+            <li><a href="delivery.html" data-i18n="nav_delivery">ДОСТАВКА И ОПЛАТА</a></li>
+            <li><a href="custom-order.html" data-i18n="nav_custom">СДЕЛАНО НА ЗАКАЗ</a></li>
+        </ul>
+    </nav>
+
+   <!-- МОБИЛЬНОЕ МЕНЮ (компактное, справа сверху) -->
+   <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__content">
+        <div class="mobile-menu__icons">
+            <button class="header-icon" id="mobile-theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="mobile-a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="mobileCartCount" class="badge">0</span>
+            </a>
+        </div>
+    </div>
+</div>
+</header>
+
+    <!-- Хлебные крошки -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html" data-i18n="btn_home">ГЛАВНАЯ</a> 
+            <span>/</span> 
+            <span data-i18n="quiz_breadcrumb">КВИЗ «НАЙДИ СВОЮ СУМКУ»</span>
+        </div>
+    </div>
+
+    <!-- Контент квиза -->
+    <div class="quiz-container">
+        <h1 data-i18n="quiz_title" style="text-align:center; font-family:var(--font-serif); letter-spacing:4px; margin-bottom:8px;">Найди свою сумку</h1>
+        <p data-i18n="quiz_subtitle" style="text-align:center; color:#666;">Ответь на 4 вопроса и получи персональные рекомендации</p>
+
+        <div class="progress-bar"><div id="progressFill" class="progress-fill" style="width:25%"></div></div>
+
+        <!-- Шаг 1 -->
+        <div id="step1" class="quiz-step active">
+            <h2 data-i18n="quiz_step1_title">Для какого повода вам нужна сумка?</h2>
+            <div class="quiz-option" data-value="everyday" data-i18n="quiz_option_everyday">Повседневная жизнь / работа</div>
+            <div class="quiz-option" data-value="evening" data-i18n="quiz_option_evening">Вечерний выход / мероприятие</div>
+            <div class="quiz-option" data-value="universal" data-i18n="quiz_option_universal">Универсальная (на все случаи)</div>
+        </div>
+
+        <!-- Шаг 2 -->
+        <div id="step2" class="quiz-step">
+            <h2 data-i18n="quiz_step2_title">Какой стиль вам ближе?</h2>
+            <div class="quiz-option" data-value="classic" data-i18n="quiz_option_classic">Classic</div>
+            <div class="quiz-option" data-value="printed" data-i18n="quiz_option_printed">Printed (с принтом)</div>
+        </div>
+
+        <!-- Шаг 3 -->
+        <div id="step3" class="quiz-step">
+            <h2 data-i18n="quiz_step3_title">Какой размер сумки вам нужен?</h2>
+            <div class="quiz-option" data-value="small" data-i18n="quiz_option_small">Маленькая (компактная)</div>
+            <div class="quiz-option" data-value="medium" data-i18n="quiz_option_medium">Средняя</div>
+            <div class="quiz-option" data-value="big" data-i18n="quiz_option_big">Большая (вместительная)</div>
+        </div>
+
+        <!-- Шаг 4 -->
+        <div id="step4" class="quiz-step">
+            <h2 data-i18n="quiz_step4_title">Какой у вас бюджет?</h2>
+            <div class="quiz-option" data-value="low" data-i18n="quiz_option_low">До 200 BYN</div>
+            <div class="quiz-option" data-value="medium" data-i18n="quiz_option_budget_medium">200–250 BYN</div>
+            <div class="quiz-option" data-value="high" data-i18n="quiz_option_high">250 BYN и выше</div>
+            <div class="quiz-option" data-value="any" data-i18n="quiz_option_any">Цена не имеет значения</div>
+        </div>
+
+        <!-- Результаты -->
+        <div id="resultStep" class="quiz-step">
+            <h2 data-i18n="quiz_result_title" style="text-align:center; margin-bottom:20px;">Вот ваши идеальные сумки</h2>
+            <div id="recommendedProducts" class="result-grid"></div>
+
+            <h3 data-i18n="quiz_additional_title" style="text-align:center; margin:40px 0 20px;">Так же вам могут подойти эти сумки:</h3>
+            <div id="additionalProducts" class="result-grid"></div>
+
+            <div style="text-align:center; margin-top:50px;">
+                <a href="catalog.html" class="btn" data-i18n="quiz_btn_catalog" style="background:#c9a66b; color:white; padding:16px 48px; border-radius:50px; text-decoration:none;">Посмотреть весь каталог</a>
+            </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; margin-top:40px;">
+            <button id="btnBack" class="btn" style="display:none;" data-i18n="quiz_btn_back">← Назад</button>
+            <button id="btnNext" class="btn" data-i18n="quiz_btn_next">Далее →</button>
+        </div>
+    </div>
+
+    <!-- ===== ФУТЕР ===== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col footer__col--left">
+                <div class="footer__line"></div>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link" data-i18n="footer_exchange">ОБМЕН И ВОЗВРАТ</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="footer_warranty">ГАРАНТИЯ И УХОД</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="footer_gift">ПОДАРОЧНАЯ КАРТА</a></li>
+                </ul>
+            </div>
+            <div class="footer__center">
+                <img src="images/main/footer-logo-s.png" alt="S Logo" class="footer__logo-img">
+                <p class="footer__subscribe-text" data-i18n="footer_subscribe">ПОДПИШИТЕСЬ, ЧТОБЫ ПОЛУЧАТЬ ОБНОВЛЕНИЯ, ДОСТУП К ЭКСКЛЮЗИВНЫМ ПРЕДЛОЖЕНИЯМ</p>
+                <form class="footer__form" action="#" method="POST">
+                    <input type="email" name="email" placeholder="NAME@EMAIL.COM" class="footer__input" required data-i18n-placeholder="footer_email_placeholder">
+                    <button type="submit" class="footer__btn" data-i18n="footer_subscribe_btn">ПОДПИСАТЬСЯ</button>
+                </form>
+                <div class="footer__socials">
+                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col footer__col--right">
+                <div class="footer__line"></div>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link" data-i18n="footer_contacts">КОНТАКТЫ</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="footer_offer">ПУБЛИЧНАЯ ОФЕРТА</a></li>
+                    <li><a href="vacancies.html" class="footer__link">ВАКАНСИИ</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- ✅ ОБЯЗАТЕЛЬНЫЕ СИСТЕМНЫЕ СКРИПТЫ (сначала они!) -->
+<script src="js/config.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/accessibility.js"></script>
+<script src="js/main.js"></script>
+
+<!-- ✅ СКРИПТ КВИЗА (логика вопросов и ответов) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Данные товаров
+    const products = [
+        { id: "monica-small", name: "MONICA SMALL", category: "classic", size: "small", price: 179, img: "images/catalog/monica-small.jpg" },
+        { id: "black", name: "BLACK", category: "classic", size: "medium", price: 219, img: "images/catalog/black-1.jpg" },
+        { id: "blue-dark", name: "BLUE/DARK", category: "classic", size: "medium", price: 229, img: "images/catalog/blue-dark.jpg" },
+        { id: "monica-big", name: "MONICA BIG", category: "printed", size: "big", price: 199, img: "images/catalog/monica-big.jpg" },
+        { id: "greta-medium", name: "GRETA MEDIUM", category: "printed", size: "medium", price: 229, img: "images/catalog/greta-medium.jpg" },
+        { id: "blue-orange", name: "BLUE/ORANGE", category: "printed", size: "small", price: 239, img: "images/catalog/blue-orange.jpg" },
+        { id: "leopard", name: "LEOPARD", category: "printed", size: "medium", price: 239, img: "images/catalog/leopard-1.jpg" },
+        { id: "snake-1", name: "SNAKE #1", category: "printed", size: "small", price: 259, img: "images/catalog/snake-1.jpg" },
+        { id: "snake-2", name: "SNAKE #2", category: "printed", size: "medium", price: 269, img: "images/catalog/snake-2.jpg" },
+        { id: "snake-3", name: "SNAKE #3", category: "printed", size: "medium", price: 249, img: "images/catalog/snake-3.jpg" }
+    ];
+
+    let currentStep = 1;
+    let answers = {};
+
+    // Показ нужного шага
+    function showStep(step) {
+        document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+        document.getElementById('step' + step).classList.add('active');
+        document.getElementById('btnBack').style.display = step > 1 ? 'block' : 'none';
+        document.getElementById('progressFill').style.width = (step * 25) + '%';
+    }
+
+    // Фильтрация основных рекомендаций
+    function getMainRecommendations() {
+        let filtered = products.filter(p => p.category === answers.style);
+
+        if (answers.size === 'small') {
+            filtered = filtered.filter(p => p.size === 'small' || p.size === 'medium');
+        } else if (answers.size === 'medium') {
+            filtered = filtered;
+        } else if (answers.size === 'big') {
+            filtered = filtered.filter(p => p.size === 'big' || p.size === 'medium');
+        }
+
+        if (answers.budget && answers.budget !== 'any') {
+            if (answers.budget === 'low') filtered = filtered.filter(p => p.price <= 200);
+            if (answers.budget === 'medium') filtered = filtered.filter(p => p.price >= 200 && p.price <= 250);
+            if (answers.budget === 'high') filtered = filtered.filter(p => p.price > 250);
+        }
+
+        return filtered.sort(() => Math.random() - 0.5).slice(0, 5);
+    }
+
+    // Фильтрация дополнительных рекомендаций
+    function getAdditionalRecommendations() {
+        const opposite = answers.style === 'classic' ? 'printed' : 'classic';
+        let filtered = products.filter(p => p.category === opposite);
+
+        if (answers.size === 'small') filtered = filtered.filter(p => p.size === 'medium');
+        if (answers.size === 'medium') filtered = filtered;
+        if (answers.size === 'big') filtered = filtered.filter(p => p.size !== 'small');
+
+        return filtered.sort(() => Math.random() - 0.5).slice(0, 4);
+    }
+
+    // Показ результатов
+    function showResults() {
+        const mainContainer = document.getElementById('recommendedProducts');
+        const additionalContainer = document.getElementById('additionalProducts');
+
+        const mainRecs = getMainRecommendations();
+        const additionalRecs = getAdditionalRecommendations();
+
+        let mainHtml = '';
+        mainRecs.forEach(item => {
+            mainHtml += `
+            <a href="product-${item.id}.html" class="result-card">
+                <img src="${item.img}" alt="${item.name}">
+                <div class="result-info">
+                    <div class="result-name">${item.name}</div>
+                    <div class="result-price">${item.price} BYN</div>
+                </div>
+            </a>`;
+        });
+        mainContainer.innerHTML = mainHtml || '<p style="grid-column:1/-1;text-align:center;padding:30px;">По вашим параметрам ничего не найдено</p>';
+
+        let additionalHtml = '';
+        additionalRecs.forEach(item => {
+            additionalHtml += `
+            <a href="product-${item.id}.html" class="result-card">
+                <img src="${item.img}" alt="${item.name}">
+                <div class="result-info">
+                    <div class="result-name">${item.name}</div>
+                    <div class="result-price">${item.price} BYN</div>
+                </div>
+            </a>`;
+        });
+        additionalContainer.innerHTML = additionalHtml;
+
+        document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+        document.getElementById('resultStep').classList.add('active');
+        document.getElementById('btnBack').style.display = 'block';
+    }
+
+    // Кнопка "Далее"
+    document.getElementById('btnNext').addEventListener('click', () => {
+        const activeStep = document.querySelector('.quiz-step.active');
+        const selected = activeStep.querySelector('.quiz-option.selected');
+
+        if (selected) {
+            if (activeStep.id === 'step2') answers.style = selected.dataset.value;
+            else if (activeStep.id === 'step3') answers.size = selected.dataset.value;
+            else if (activeStep.id === 'step4') answers.budget = selected.dataset.value;
+        }
+
+        if (currentStep < 4) {
+            currentStep++;
+            showStep(currentStep);
+        } else {
+            showResults();
+        }
+    });
+
+    // Кнопка "Назад"
+    document.getElementById('btnBack').addEventListener('click', () => {
+        if (currentStep > 1) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    });
+
+    // Выбор опции (клик по варианту ответа)
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('quiz-option')) {
+            const parent = e.target.parentElement;
+            parent.querySelectorAll('.quiz-option').forEach(el => el.classList.remove('selected'));
+            e.target.classList.add('selected');
+        }
+    });
+
+    console.log('[SCÀLA Quiz] ✅ Инициализирован');
+});
+</script>
+</body>
+</html>

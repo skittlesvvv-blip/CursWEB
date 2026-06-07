@@ -1,0 +1,1237 @@
+/* ========================================
+   AUTH PAGES (Login / Register)
+   ======================================== */
+
+body {
+    background-color: #000000;
+}
+
+.page-wrapper {
+    max-width: 1152px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 9999px #000000;
+}
+
+/* ========================================
+   ЕДИНАЯ ШАПКА
+   ======================================== */
+
+.catalog-header {
+    background-color: #ffffff;
+    padding: 20px 48px;
+    border-bottom: 1px solid #eee;
+}
+
+.catalog-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Логотип по центру */
+.catalog-header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.catalog-header__logo a {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+/* Язык */
+.catalog-header__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #000;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+/* Иконки */
+.catalog-header__icons {
+    display: flex;
+    gap: 18px;
+    color: #000;
+    align-items: center;
+}
+
+/* Навигация */
+.catalog-header__nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+}
+
+.catalog-header__nav a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Активный пункт */
+.catalog-header__nav a.is-active {
+    color: #c9a66b;
+    font-weight: 600;
+}
+
+.catalog-header__nav a.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #c9a66b;
+}
+/* === ХЛЕБНЫЕ КРОШКИ === */
+.breadcrumb {
+    padding: 20px 48px;
+    background-color: #ffffff;
+}
+/* ====================== КОМПАКТНОЕ БУРГЕР-МЕНЮ ====================== */
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #000000;
+    cursor: pointer;
+    padding: 8px 15px;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 100%;               /* сразу под шапкой */
+    right: 15px;             /* справа */
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 15px 20px;
+    display: none;
+    z-index: 10000;
+    min-width: 220px;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu__icons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mobile-menu__icons .header-icon {
+    color: #ffffff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Показываем бургер на мобильных */
+@media (max-width: 800px) {
+    #desktopIcons {
+        display: none !important;
+    }
+    .burger-btn {
+        display: block !important;
+    }
+}
+.breadcrumb .container {
+    max-width: 1152px;  /* ← ИЗМЕНЕНО С 1440px НА 1152px */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.breadcrumb a {
+    color: #000000;
+    text-decoration: none;
+}
+.hero-banner {
+    margin-top: 10px;   /* ← можно увеличить, если нужно сильнее опустить */
+}
+/* ========================================
+   ФОРМА РЕГИСТРАЦИИ
+   ======================================== */
+
+.auth-title {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth-subtitle {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #555;
+    font-size: 14px;
+}
+
+.auth-subtitle a {
+    color: #000;
+    text-decoration: underline;
+}
+
+.auth-form {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.form-group,
+.checkbox-group {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.nickname-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.nickname-group input {
+    flex: 1;
+}
+
+.btn-regenerate {
+    background: transparent;
+    color: #000;
+    border: 1px solid #000;
+    padding: 10px 14px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    white-space: nowrap;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.btn-regenerate:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Чекбоксы */
+.checkbox-group input[type="checkbox"],
+.checkbox-row input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 1.5px solid #000;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 2px;
+}
+
+.checkbox-group input[type="checkbox"]:checked,
+.checkbox-row input[type="checkbox"]:checked {
+    background-color: #000;
+    border-color: #000;
+}
+
+.checkbox-group input[type="checkbox"]:checked::after,
+.checkbox-row input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-group label,
+.checkbox-row {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.checkbox-group label span,
+.checkbox-row span {
+    line-height: 1.4;
+}
+
+/* Кнопка отправки */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: #111;
+    color: #fff;
+    border: none;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background: #000;
+}
+
+.btn-submit:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 18px;
+}
+
+.forgot-password a {
+    color: #666;
+    font-size: 13px;
+}
+
+/* Ошибки */
+.error-message {
+    color: #d32f2f;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.input-error {
+    border-color: #d32f2f !important;
+}
+
+.success-message {
+    color: #22c55e;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* ========================================
+   ЛИЧНЫЙ КАБИНЕТ
+   ======================================== */
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.account-greeting {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.btn-logout {
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-logout:hover {
+    background: var(--text-primary);
+    color: #fff;
+}
+
+.account-section {
+    margin-bottom: 50px;
+}
+
+.account-section-title {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.account-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.info-item label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.info-item p {
+    font-size: 15px;
+    color: var(--text-primary);
+    margin: 0;
+    font-weight: 500;
+}
+
+.btn-edit,
+.btn-save {
+    padding: 10px 24px;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-edit:hover,
+.btn-save:hover {
+    background: var(--text-primary);
+    color: #fff;
+}
+
+/* Лояльность */
+.loyalty-card {
+    background: #f9f9f9;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.6s ease;
+}
+
+/* Заказы */
+.order-card {
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    background: #fff;
+    margin-bottom: 16px;
+}
+
+.order-card__status {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-pending   { background: #fffbeb; color: #d97706; border-color: #f59e0b; }
+.status-confirmed { background: #eff6ff; color: #2563eb; border-color: #3b82f6; }
+.status-shipped   { background: #ecfdf5; color: #059669; border-color: #10b981; }
+.status-delivered { background: #f0fdf4; color: #16a34a; border-color: #22c55e; }
+.status-cancelled { background: #fef2f2; color: #dc2626; border-color: #ef4444; }
+
+.no-orders,
+.no-favorites {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border-radius: var(--radius-md);
+}
+
+/* ========================================
+   КОЛЕСО УДАЧИ (ИСПРАВЛЕННЫЙ БЛОК)
+   ======================================== */
+
+.btn-wheel {
+    background: #111;
+    color: #fff;
+    padding: 14px 36px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    border: none;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-wheel:hover {
+    background: #c9a66b;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Модальное окно */
+dialog.modal.modal--wheel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.modal--wheel .modal__content {
+    margin: 0;
+    max-width: 420px;
+    width: 92%;
+    padding: 40px 32px 50px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.modal--wheel .modal__content::-webkit-scrollbar {
+    display: none;
+}
+
+.modal--wheel .modal__title {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.modal--wheel .modal__subtitle {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Колесо */
+.wheel-wrapper {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 30px auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wheelCanvas {
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 8px solid #fff;
+}
+
+.wheel-result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    min-height: 50px;
+    line-height: 1.4;
+}
+
+/* ========================================
+   ЛИЧНЫЙ КАБИНЕТ — ЭЛЕГАНТНЫЙ СТИЛЬ
+   ======================================== */
+
+.account-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+}
+
+.account-section {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 40px 48px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.account-section-title {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #111;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.account-header {
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.account-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+.account-greeting {
+    font-size: 16px;
+    color: #666;
+}
+
+.account-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px 40px;
+    margin-bottom: 32px;
+}
+
+.info-item label {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.info-item p {
+    font-size: 17px;
+    color: #222;
+    font-weight: 400;
+    margin: 0;
+}
+
+.btn-edit,
+.btn-save,
+.btn-logout {
+    padding: 12px 28px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-edit:hover,
+.btn-save:hover {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+/* Лояльность */
+.loyalty-card {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 36px 40px;
+}
+
+.loyalty-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+    max-width: 620px;
+}
+
+.loyalty-progress {
+    margin: 32px 0 24px;
+}
+
+.progress-bar {
+    height: 6px;
+    background: #eee;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #c9a66b, #b89558);
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+#loyalty-text {
+    color: #333;
+    font-weight: 500;
+}
+
+#loyalty-badge {
+    background: #f0f0f0;
+    color: #555;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* Заказы */
+.order-card {
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+/* ========================================
+   КОРЗИНА — КРАСИВЫЙ ПРЕМИАЛЬНЫЙ СТИЛЬ
+   ======================================== */
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    box-shadow: 0 8px 25px rgba(201, 166, 107, 0.12);
+    transform: translateY(-2px);
+}
+
+.cart-item__image img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cart-item__info {
+    flex: 1;
+}
+
+.cart-item__info h3 {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+
+.cart-item__price {
+    color: #666;
+    font-size: 15px;
+}
+
+/* Количество */
+.cart-item__quantity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+.qty-btn {
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.qty-btn:hover {
+    background: #f0f0f0;
+    border-color: #c9a66b;
+}
+
+.qty-input {
+    width: 60px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+}
+
+.cart-item__subtotal {
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 110px;
+    text-align: right;
+}
+
+.cart-item__remove {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.cart-item__remove:hover {
+    color: #d32f2f;
+    background: #fee2e2;
+}
+/* ========================================
+   ПРОГРАММА ЛОЯЛЬНОСТИ — СТИЛИ
+   ======================================== */
+.loyalty-reward {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 30px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+}
+
+.limited-bag {
+    width: 180px;           /* небольшое фото */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
+}
+
+.reward-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.reward-info p {
+    margin: 0;
+    color: #555;
+    font-size: 15px;
+}
+
+/* В тёмной теме */
+body.theme-dark .loyalty-reward {
+    background: #2a2a2a;
+    color: #f0f0f0;
+}
+
+body.theme-dark .reward-info p {
+    color: #ccc;
+}
+/* Адаптив */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .catalog-header {
+        padding: 20px 24px;
+    }
+    
+    .account-section {
+        padding: 28px 24px;
+    }
+}
+/* ========================================
+   ИКОНКА АДМИН-ПАНЕЛИ В ШАПКЕ
+   ======================================== */
+
+/* Базовый стиль (наследуется от .header-icon) */
+.admin-link {
+    color: #d32f2f !important; /* Красный акцент для админа */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.admin-link:hover {
+    color: #b71c1c !important;
+    transform: rotate(15deg); /* Лёгкий поворот при наведении */
+}
+
+/* Анимация появления (когда показываем админу) */
+.admin-link.show {
+    animation: iconFadeIn 0.3s ease;
+}
+
+@keyframes iconFadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Для мобильной версии */
+@media (max-width: 800px) {
+    .mobile-admin-link {
+        color: #ffffff !important; /* Белый в тёмном мобильном меню */
+    }
+    .mobile-admin-link:hover {
+        color: #ffd54f !important; /* Золотой при наведении */
+    }
+}
+/* ========================================
+   📱 РЕГИСТРАЦИЯ — АДАПТИВ (МОБИЛЬНЫЕ)
+   ======================================== */
+
+/* Планшет и большие телефоны (до 768px) */
+@media (max-width: 768px) {
+    .auth-page {
+        padding: 20px 16px 40px;
+    }
+    
+    .auth-container {
+        padding: 30px 24px;
+        border-radius: 16px;
+    }
+    
+    .auth-title {
+        font-size: 24px;
+        letter-spacing: 3px;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+    
+    .auth-subtitle {
+        text-align: center;
+        font-size: 13px;
+        margin-bottom: 28px;
+    }
+    
+    /* Поля формы: вертикально, с отступами */
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 13px;
+        margin-bottom: 8px;
+        display: block;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px 16px;
+        font-size: 15px;
+        border-radius: 8px;
+        height: auto;
+        min-height: 48px; /* Удобно для пальца */
+    }
+    
+    /* Две колонки → одна на мобильных */
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* Подсказки и ошибки */
+    .form-hint {
+        font-size: 11px;
+        margin-top: 6px;
+        display: block;
+    }
+    
+    .error-message {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+    
+    /* Никнейм + кнопка генерации */
+    .nickname-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nickname-group input {
+        width: 100%;
+    }
+    
+    .btn-regenerate {
+        width: 100%;
+        padding: 12px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+    
+    /* Чекбоксы */
+    .checkbox-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    
+    .checkbox-row input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-top: 2px;
+        flex-shrink: 0;
+    }
+    
+    /* Кнопка регистрации */
+    .btn-submit {
+        width: 100%;
+        padding: 16px 24px;
+        font-size: 14px;
+        letter-spacing: 2px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    
+    /* Сообщения */
+    .success-message,
+    .error-message#formError {
+        text-align: center;
+        font-size: 13px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin-top: 16px;
+    }
+}
+
+/* Маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    .auth-page {
+        padding: 16px 12px 30px;
+    }
+    
+    .auth-container {
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+    
+    .auth-title {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+    
+    .auth-subtitle {
+        font-size: 12px;
+    }
+    
+    .form-group label {
+        font-size: 12px;
+    }
+    
+    .form-group input {
+        padding: 12px 14px;
+        font-size: 14px;
+        min-height: 44px;
+    }
+    
+    .form-hint {
+        font-size: 10px;
+    }
+    
+    .error-message {
+        font-size: 11px;
+    }
+    
+    .checkbox-row {
+        font-size: 12px;
+        gap: 10px;
+    }
+    
+    .checkbox-row input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .btn-submit {
+        padding: 14px 20px;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+    }
+    
+    /* Ссылка "Войти" в подзаголовке */
+    .auth-subtitle a {
+        display: block;
+        margin-top: 4px;
+        text-align: center;
+    }
+}
+
+/* Очень маленькие экраны (до 360px) */
+@media (max-width: 360px) {
+    .auth-container {
+        padding: 20px 16px;
+    }
+    
+    .auth-title {
+        font-size: 20px;
+    }
+    
+    .form-group input {
+        font-size: 13px;
+        padding: 10px 12px;
+        min-height: 42px;
+    }
+    
+    .btn-submit {
+        font-size: 12px;
+        padding: 12px 16px;
+    }
+}
+/* ✨ ЧЕКБОКС «ЗАПОМНИТЬ МЕНЯ» — ИСПРАВЛЕННЫЙ */
+.checkbox-group {
+    margin: 20px 0 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Сам чекбокс — компактный и квадратный */
+.checkbox-group input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+    accent-color: #c9a66b;
+    cursor: pointer;
+    margin: 0;
+    flex-shrink: 0; /* Не сжимается */
+}
+
+/* Для старых браузеров — полная кастомизация */
+@supports not (accent-color: #c9a66b) {
+    .checkbox-group input[type="checkbox"] {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        width: 18px !important;
+        height: 18px !important;
+        border: 2px solid #ccc;
+        border-radius: 3px;
+        background: #fff;
+        position: relative;
+        cursor: pointer;
+    }
+    .checkbox-group input[type="checkbox"]:checked {
+        background: #c9a66b;
+        border-color: #c9a66b;
+    }
+    .checkbox-group input[type="checkbox"]:checked::after {
+        content: '✓';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+
+.checkbox-group span {
+    line-height: 1.4;
+}

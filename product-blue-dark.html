@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLUE DARK | SCÀLA</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+<header class="catalog-header">
+    <div class="catalog-header__top">
+        
+        <!-- Язык -->
+        <div class="catalog-header__lang">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <span class="lang-sep">—</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        
+        <!-- Логотип -->
+        <div class="catalog-header__logo">
+            <a href="index.html">SCÁLA</a>
+        </div>
+        
+        <!-- Иконки (десктоп) -->
+        <div class="catalog-header__icons" id="desktopIcons">
+            <button class="header-icon" id="theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon login-link" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="account.html" class="header-icon account-link" title="Личный кабинет" style="display: none;">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cartCount" class="badge">0</span>
+            </a>
+        </div>
+
+        <!-- Кнопка бургер (мобильная) -->
+        <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    
+    <!-- Навигация -->
+    <nav class="catalog-header__nav">
+        <ul>
+            <li><a href="catalog.html" data-i18n="nav_catalog">КАТАЛОГ</a></li>
+            <li><a href="about.html" data-i18n="nav_about">О НАС</a></li>
+            <li><a href="delivery.html" data-i18n="nav_delivery">ДОСТАВКА И ОПЛАТА</a></li>
+            <li><a href="custom-order.html" data-i18n="nav_custom">СДЕЛАНО НА ЗАКАЗ</a></li>
+        </ul>
+    </nav>
+
+   <!-- МОБИЛЬНОЕ МЕНЮ (компактное, справа сверху) -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__content">
+        <div class="mobile-menu__icons">
+            <button class="header-icon" id="mobile-theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="mobile-a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="mobileCartCount" class="badge">0</span>
+            </a>
+        </div>
+    </div>
+</div>
+</header>
+    <!-- Хлебные крошки -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html" data-i18n="btn_home">ГЛАВНАЯ</a> 
+            <span>/</span> 
+            <a href="catalog.html" data-i18n="nav_catalog">КАТАЛОГ</a> 
+            <span>/</span> 
+            <span data-i18n="product_blue_dark_title">BLUE DARK</span>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="product-page">
+        <div class="container">
+            <div class="product-grid">
+
+                <!-- Фото -->
+                <div class="product-image">
+                    <img src="images/catalog/blue-dark.jpg" alt="BLUE DARK">
+                </div>
+
+                <!-- Информация -->
+                <div class="product-info">
+
+                    <h1 class="product-title" data-i18n="product_blue_dark_title">BLUE DARK</h1>
+
+                    <!-- Цена -->
+                    <div class="product-price">
+                        <span class="old-price">280 BYN</span>
+                        <span class="discount">−20%</span>
+                        <span class="current-price">229 BYN</span>
+                    </div>
+
+                    <!-- Цвет -->
+                    <div class="product-colors">
+                        <span class="color-label" data-i18n="product_color">ЦВЕТ</span>
+                        <div class="color-options">
+                            <button class="color-btn active" style="background:#072451" data-color="dark-blue"></button>
+                            </div>
+                    </div>
+
+                    <!-- Кнопки -->
+                    <div class="product-actions" style="display: flex; gap: 12px; align-items: center;">
+                        <button class="btn-buy" id="btnBuyBlueDark" data-i18n="btn_buy">КУПИТЬ</button>
+                        
+                        <!-- Кнопка "В избранное" -->
+                        <button class="favorite-btn" id="favoriteBtn" title="Добавить в избранное" 
+                                style="width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 2px solid #ddd; 
+                                       display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s;">
+                            <i class="far fa-heart" style="font-size: 26px; color: #c9a66b;"></i>
+                        </button>
+                    </div>
+                    <small class="buy-note" id="buyNote" style="display:none;" data-i18n="product_login_required">* Для покупки необходимо войти в аккаунт</small>
+
+                    <!-- Табы -->
+                    <div class="product-tabs">
+                        <div class="tabs-nav">
+                            <button class="tab-btn active" data-tab="details" data-i18n="tab_details">ДЕТАЛИ</button>
+                            <button class="tab-btn" data-tab="size" data-i18n="tab_size">РАЗМЕР</button>
+                            <button class="tab-btn" data-tab="delivery" data-i18n="tab_delivery">ДОСТАВКА И ВОЗВРАТ</button>
+                        </div>
+
+                        <div class="tab-content active" id="details">
+                            <p data-i18n="blue_dark_desc">Благородный темно-синий оттенок, граничащий с чёрным. Элегантная классика для вечерних выходов и деловых встреч.</p>
+                            <p><strong>Материал:</strong> итальянская кожа рептилий. 
+                                <strong>Фурнитура:</strong> тёмное золото. 
+                                <strong>Подкладка:</strong> премиум-текстиль.</p>
+                        </div>
+
+                        <div class="tab-content" id="size">
+                            <p><strong>Размеры:</strong> 29 × 20 × 10 см</p>
+                            <p><strong>Длина ремня:</strong> регулируемая, 50–115 см</p>
+                            <p><strong>Вес:</strong> ~510 г</p>
+                        </div>
+
+                        <div class="tab-content" id="delivery">
+                            <p><strong>Доставка:</strong> Беларусь — бесплатно (3–5 дней), СНГ — 80 BYN</p>
+                            <p><strong>Возврат:</strong> 14 дней</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+<!-- ====================== Ф-11 ОТЗЫВЫ (ПОЛНОСТЬЮ РАБОЧИЙ) ====================== -->
+<section class="reviews-section">
+    <div class="reviews-header">
+        <h2>Отзывы о товаре</h2>
+        <div id="averageRating" class="avg-rating"></div>
+    </div>
+
+    <div id="reviews-list"></div>
+
+    <!-- Форма отзыва -->
+    <div class="review-form">
+        <h3>Оставить отзыв</h3>
+        
+        <div class="stars-input" id="starsInput">
+            <span data-rating="1">★</span>
+            <span data-rating="2">★</span>
+            <span data-rating="3">★</span>
+            <span data-rating="4">★</span>
+            <span data-rating="5">★</span>
+        </div>
+
+        <textarea id="reviewText" rows="4" placeholder="Поделитесь своим впечатлением о товаре..."></textarea>
+
+        <button onclick="submitReview('blue-dark', 'BLUE DARK')" class="btn-submit">
+            Опубликовать отзыв
+        </button>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Рендер отзывов
+    const productId = 'blue-dark';           // ← Замени на реальный id товара
+    const productName = 'BLUE DARK';       // ← Замени на название товара
+
+    if (typeof Reviews !== 'undefined') {
+        Reviews.render(productId);
+    }
+
+    // Обработка клика по звёздочкам
+    const stars = document.querySelectorAll('#starsInput span');
+    let selectedRating = 5;
+
+    stars.forEach(star => {
+        star.addEventListener('click', function() {
+            selectedRating = this.getAttribute('data-rating');
+            
+            stars.forEach(s => {
+                if (parseInt(s.getAttribute('data-rating')) <= selectedRating) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+        });
+    });
+
+    // Глобальная функция отправки
+    window.submitReview = function(productId, productName) {
+        const text = document.getElementById('reviewText').value.trim();
+        if (!text) {
+            showNotification?.('Напишите текст отзыва', 'error');
+            return;
+        }
+
+        if (typeof Reviews !== 'undefined') {
+            Reviews.addReview(productId, productName, selectedRating, text).then(() => {
+                document.getElementById('reviewText').value = '';
+                Reviews.render(productId);
+            });
+        }
+    };
+});
+</script>
+        <!-- Похожие товары -->
+        <section class="related-products">
+            <div class="container">
+                <h2 class="related-title" data-i18n="related_title">ВАМ МОЖЕТ ПОНРАВИТЬСЯ</h2>
+                <div class="related-grid">
+                    <a href="product-blue-orange.html" class="related-item">
+                        <img src="images/catalog/blue-orange.jpg" alt="BLUE/ORANGE">
+                    </a>
+                    <a href="product-black-1.html" class="related-item">
+                        <img src="images/catalog/black-1.jpg" alt="BLACK">
+                    </a>
+                    <a href="product-greta-medium.html" class="related-item">
+                        <img src="images/catalog/greta-medium.jpg" alt="GRETA MEDIUM">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+  <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col footer__col--left">
+                <div class="footer__line"></div>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link" data-i18n="footer_exchange">ОБМЕН И ВОЗВРАТ</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="footer_warranty">ГАРАНТИЯ И УХОД</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="footer_gift">ПОДАРОЧНАЯ КАРТА</a></li>
+                </ul>
+            </div>
+            <div class="footer__center">
+                <img src="images/main/footer-logo-s.png" alt="S Logo" class="footer__logo-img">
+                <p class="footer__subscribe-text" data-i18n="footer_subscribe">ПОДПИШИТЕСЬ, ЧТОБЫ ПОЛУЧАТЬ ОБНОВЛЕНИЯ, ДОСТУП К ЭКСКЛЮЗИВНЫМ ПРЕДЛОЖЕНИЯМ</p>
+                <form class="footer__form" action="#" method="POST">
+                    <input type="email" name="email" placeholder="NAME@EMAIL.COM" class="footer__input" required data-i18n="footer_email_placeholder">
+                    <button type="submit" class="footer__btn" data-i18n="footer_subscribe_btn">ПОДПИСАТЬСЯ</button>
+                </form>
+                <div class="footer__socials">
+                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col footer__col--right">
+                <div class="footer__line"></div>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link" data-i18n="footer_contacts">КОНТАКТЫ</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="footer_offer">ПУБЛИЧНАЯ ОФЕРТА</a></li>
+                    <li><a href="vacancies.html" class="footer__link">ВАКАНСИИ</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<!-- Кнопка чата -->
+<button class="chat-btn" aria-label="Открыть чат поддержки">
+    <svg viewBox="0 0 24 12" width="24" height="12">
+        <circle cx="4" cy="6" r="2" fill="#ffffff"/>
+        <circle cx="12" cy="6" r="2" fill="#ffffff"/>
+        <circle cx="20" cy="6" r="2" fill="#ffffff"/>
+    </svg>
+</button>
+
+ <!-- Скрипты -->
+<script src="js/config.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/accessibility.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/products.js"></script>
+<script src="js/favorites.js"></script>
+<script src="js/vacancies.js"></script>
+<script src="js/reviews.js"></script>     <!-- ← Добавили сюда -->
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Табы
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.tab).classList.add('active');
+        });
+    });
+
+    // Кнопка Купить
+    const btnBuy = document.getElementById('btnBuyBlueDark');
+    const buyNote = document.getElementById('buyNote');
+
+    function updateBuyButton() {
+        const user = Auth?.getCurrentUser?.() || Storage.get(Storage.keys.CURRENT_USER);
+        if (user) {
+            btnBuy.disabled = false;
+            btnBuy.style.opacity = '1';
+            btnBuy.onclick = () => addToCart('blue-dark', 'BLUE/DARK', 229, 'images/catalog/blue-dark.jpg');
+        } else {
+            btnBuy.disabled = true;
+            btnBuy.style.opacity = '0.5';
+            buyNote.style.display = 'block';
+            btnBuy.onclick = () => {
+                showNotification?.('Для покупки необходимо войти в аккаунт', 'error');
+                setTimeout(() => location.href = 'login.html', 800);
+            };
+        }
+    }
+    updateBuyButton();
+
+    // Кнопка "В избранное"
+    const favoriteBtn = document.getElementById('favoriteBtn');
+    if (favoriteBtn) {
+        favoriteBtn.addEventListener('click', function() {
+            toggleFavorite('blue-dark', 'BLUE/DARK', 229, 'images/catalog/blue-dark.jpg');
+        });
+    }
+Reviews.addDemoReviews('blue-dark', [
+    {
+        id: 'demo1',
+        userName: 'SCÀLA',
+        rating: 5,
+        text: 'Этот отзыв добавлен автоматически.',
+        date: new Date().toISOString()
+    }
+]);
+    // Обновление при смене пользователя
+    window.addEventListener('storage', (e) => {
+        if (e.key === Storage.keys.CURRENT_USER) updateBuyButton();
+    });
+});
+</script>
+
+</body>
+
+</html>

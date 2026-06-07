@@ -1,0 +1,277 @@
+/* ========================================
+   DELIVERY & PAYMENT PAGE
+   ======================================== */
+
+body {
+    background-color: #000000;
+}
+
+.page-wrapper {
+    max-width: 1152px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 9999px #000000;
+}
+.catalog-header {
+    background-color: #ffffff;
+    padding: 20px 48px;
+    border-bottom: 1px solid #eee;
+}
+
+.catalog-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Логотип по центру */
+.catalog-header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.catalog-header__logo a {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+/* Язык */
+.catalog-header__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #000;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+/* Иконки */
+.catalog-header__icons {
+    display: flex;
+    gap: 18px;
+    color: #000;
+    align-items: center;
+}
+
+/* === НАВИГАЦИЯ (точно как в "О нас") === */
+.catalog-header__nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+}
+
+.catalog-header__nav a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Активный пункт — золотистый */
+.catalog-header__nav a.is-active {
+    color: #c9a66b;
+    font-weight: 600;
+}
+
+.catalog-header__nav a.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #c9a66b;
+}
+/* === ХЛЕБНЫЕ КРОШКИ === */
+.breadcrumb {
+    padding: 20px 48px;
+    background-color: #ffffff;
+}
+
+.breadcrumb .container {
+    max-width: 1152px;  /* ← ИЗМЕНЕНО С 1440px НА 1152px */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.breadcrumb a {
+    color: #000000;
+    text-decoration: none;
+}
+/* ====================== КОМПАКТНОЕ БУРГЕР-МЕНЮ ====================== */
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #000000;
+    cursor: pointer;
+    padding: 8px 15px;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 100%;               /* сразу под шапкой */
+    right: 15px;             /* справа */
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 15px 20px;
+    display: none;
+    z-index: 10000;
+    min-width: 220px;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu__icons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mobile-menu__icons .header-icon {
+    color: #ffffff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Показываем бургер на мобильных */
+@media (max-width: 800px) {
+    #desktopIcons {
+        display: none !important;
+    }
+    .burger-btn {
+        display: block !important;
+    }
+}
+
+.delivery-content .container {
+    max-width: 1000px;           /* ← ширина контента */             /* ← по центру */
+    padding: 0 20px;
+}
+/* === ЗАГОЛОВКИ === */
+.section-title,
+.section-subtitle  {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight:400;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+}
+
+.section-subtitle {
+    margin-top: 55px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* === БЛОКИ ИНФОРМАЦИИ === */
+.info-block,
+ .legal-text{
+    margin-bottom: 26px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #444;
+}
+
+.info-block h3 {
+    font-size: 15.5px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #111;
+}
+
+/* === СЕТКА ЛОГОТИПОВ ОПЛАТЫ === */
+.payment-logos-grid {
+    display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin: 35px auto;
+    max-width: 700px;
+    justify-content: center;
+}
+
+.payment-logo-box {
+    background: #f8f8f8;
+    padding: 26px 20px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.payment-img {
+    max-height: 42px;
+    margin-bottom: 14px;
+}
+
+.payment-text {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* === ЮРИДИЧЕСКИЙ ТЕКСТ (выровнен под контейнер) === */
+.legal-text {
+    max-width: 1000px;              /* ← теперь выровнен с остальным текстом */
+    margin: 25px auto 0;           /* ← центрируем */
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+}
+
+.legal-text p {
+    margin-bottom: 15px;
+}
+
+/* === Логотипы безопасности === */
+.security-logos {
+    display: flex;
+    gap: 18px;
+    margin: 22px 0;
+    flex-wrap: wrap;
+}
+
+.security-logos img {
+    height: 26px;
+    opacity: 0.7;
+}
+
+/* === АДАПТИВ === */
+@media (max-width: 768px) {
+    .payment-logos-grid {
+        grid-template-columns: 1fr;
+    }
+}

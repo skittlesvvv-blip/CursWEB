@@ -1,0 +1,487 @@
+/* ========================================
+   ГЛАВНАЯ СТРАНИЦА - ФИНАЛЬНАЯ ВЕРСИЯ
+   ======================================== */
+
+/* === ЧЁРНЫЕ ПОЛОСКИ ПО БОКАМ === */
+body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+.page-wrapper {
+    max-width: 1152px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 9999px #000000;
+}
+
+/* ========================================
+   ШАПКА (ПРОЗРАЧНАЯ)
+   ======================================== */
+.catalog-header {
+    background: transparent !important;
+    border-bottom: none !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 25px 48px;
+}
+.catalog-header__lang {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 11px;
+    opacity: 0.85;
+}
+.catalog-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1152px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.catalog-header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.catalog-header__logo a {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+
+/* Иконки в едином стиле */
+.catalog-header__icons {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.header-icon {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 4px;
+    opacity: 0.9;
+    transition: all 0.2s ease;
+}
+
+.header-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    max-width: 1152px;
+    height: 646px;
+    margin: 0 auto;
+    background: #000;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/main/hero-bag.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero__title {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-serif);
+    font-size: 92px;
+    color: #ffffff;
+    letter-spacing: 14px;
+    text-transform: uppercase;
+    z-index: 4;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.7);
+    white-space: nowrap;
+}
+
+/* ========================================
+   СЕКЦИЯ "СДЕЛАНО ВРУЧНУЮ"
+   ======================================== */
+.handmade-section {
+    background: #ffffff;
+    margin-top: -90px;
+    position: relative;
+    z-index: 10;
+    padding: 0 0 80px;
+}
+
+.handmade__container {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 0 48px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.handmade__image-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.handmade__content-block {
+    padding-right: 30px;
+}
+
+.handmade__title {
+    font-size: 23px;
+    letter-spacing: 3.5px;
+    margin-bottom: 26px;
+    font-weight: 400;
+}
+
+.handmade__text {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: #444;
+    max-width: 400px;
+}
+
+.handmade__btn {
+    margin-top: 28px;
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 15px 48px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.handmade__btn:hover {
+    background: #000;
+}
+
+/* ========================================
+   СЕТКА ТОВАРОВ
+   ======================================== */
+.catalog-section {
+    background: #ffffff;
+    padding: 40px 0 90px;
+}
+
+.catalog__container {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+.catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.catalog__image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+}
+
+.catalog__item:hover .catalog__image {
+    transform: scale(1.04);
+}
+
+.catalog__grid .catalog__item:nth-child(2),
+.catalog__grid .catalog__item:nth-child(5) {
+    margin-top: 45px;
+}
+
+/* ========================================
+   INSTAGRAM
+   ======================================== */
+.instagram-section {
+    background: #f8f8f8;
+    padding: 55px 50px;
+}
+
+.instagram__container {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+.instagram__title {
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-bottom: 35px;
+}
+
+.instagram__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+}
+
+.instagram__item {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.instagram__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.instagram__item:hover .instagram__image {
+    transform: scale(1.08);
+}
+/* === КНОПКА ЧАТА (КАТАЛОГ) === */
+.chat-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background-color: #333333;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.chat-btn:hover { transform: scale(1.1); background-color: #000000; }
+.chat-btn svg circle { fill: #ffffff; }
+/* Карта в тёмной теме — не инвертировать */
+body.theme-dark .map-container iframe,
+body.theme-dark .map-container img,
+body.theme-dark .map-container .ymaps-2-1-79-map,
+body.theme-dark .map-container .google-map {
+    filter: none !important;
+    opacity: 1 !important;
+    background: #fff !important;
+}
+/* ========================================
+   АДАПТИВНОСТЬ
+   ======================================== */
+@media (max-width: 1024px) {
+    .hero__title { font-size: clamp(32px, 5vw, 60px); letter-spacing: 0.15em; }
+    .handmade__container { gap: 40px; }
+    .catalog__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .catalog__grid .catalog__item:nth-child(n) { margin-top: 0; }
+    .instagram__grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+}
+
+@media (max-width: 768px) {
+    .hero { height: auto; min-height: 400px; } /* На мобильных лучше авто-высота */
+    .hero__title {
+        font-size: 28px;
+        letter-spacing: 0.1em;
+        white-space: normal;
+        line-height: 1.3;
+    }
+    .handmade__container { grid-template-columns: 1fr; text-align: center; }
+    .handmade__content-block { padding: 0; }
+    .catalog__grid { grid-template-columns: 1fr; }
+    .instagram__grid { grid-template-columns: repeat(2, 1fr); }
+    .instagram__play-icon { width: 40px; height: 40px; font-size: 16px; }
+}
+
+@media (max-width: 320px) {
+    .hero__title { font-size: 24px; letter-spacing: 0.08em; }
+    .instagram__title { font-size: 16px; letter-spacing: 1px; }
+}
+/* ========================================
+   📱 АДАПТИВНОСТЬ — КАТАЛОГ + ГЛАВНАЯ (С ЦЕНТРИРОВАНИЕМ)
+   ======================================== */
+
+/* ========== ПЛАНШЕТ (до 1024px) ========== */
+@media (max-width: 1024px) {
+    .catalog-header__top { padding: 14px 20px; }
+    .catalog-header__nav ul { gap: 20px; }
+    .breadcrumb { padding: 16px 20px; }
+    .search-bar { padding: 24px 20px 16px; }
+    .search-container { max-width: 600px; }
+    .category-filters { padding: 0 20px; gap: 10px; }
+    .filter-btn { padding: 10px 24px; font-size: 12px; }
+    
+    .product-showcase { padding: 50px 20px; }
+    .product-showcase__grid { gap: 24px; }
+    .product-showcase__info-wrapper { padding: 24px !important; text-align: center; }
+    .product-showcase__text { max-width: 100%; }
+    
+    .products-grid { padding: 0 20px 40px; }
+    .products-grid__row { gap: 20px; }
+    .products-grid__item:nth-child(n) { margin-top: 0 !important; }
+    
+    .quiz-promo-section { padding: 50px 20px; }
+    .quiz-promo { gap: 30px; }
+    .quiz-promo-text h2 { font-size: 28px; letter-spacing: 4px; }
+
+    /* ✅ ЦЕНТРИРОВАНИЕ STAY WILD И HANDMADE */
+    .hero__title {
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto !important;
+    }
+    .handmade__container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 30px;
+    }
+    .handmade__text {
+        max-width: 100% !important;
+        margin: 0 auto 20px !important;
+    }
+    .handmade__btn {
+        margin: 0 auto !important;
+        display: block !important;
+    }
+}
+
+/* ========== МОБИЛЬНЫЕ (до 768px) ========== */
+@media (max-width: 768px) {
+    .catalog-header__top { padding: 12px 16px; }
+    .catalog-header__logo a { font-size: 20px; letter-spacing: 2px; }
+    .catalog-header__nav { display: none; }
+    .breadcrumb { padding: 12px 16px; font-size: 9px; letter-spacing: 1px; }
+    
+    .search-bar { padding: 20px 16px 14px; }
+    .search-container { max-width: 100%; }
+    #searchInput { padding: 14px 45px; font-size: 14px; }
+    
+    .category-filters { padding: 0 16px; gap: 8px; margin: 25px 0 30px; }
+    .filter-btn { padding: 8px 18px; font-size: 11px; border-radius: 20px; }
+    
+    .product-showcase { padding: 35px 16px; }
+    .product-showcase__grid { grid-template-columns: 1fr; gap: 20px; }
+    .product-showcase__img { height: 300px !important; }
+    .product-showcase__info-wrapper { padding: 20px !important; text-align: center; }
+    .product-showcase__title { font-size: 22px; letter-spacing: 3px; margin-bottom: 20px; }
+    .product-showcase__text { font-size: 13px; line-height: 1.7; }
+    
+    .products-grid { padding: 0 16px 30px; }
+    .products-grid__row,
+    .products-grid__row--five { grid-template-columns: 1fr; justify-items: center; }
+    
+    .quiz-promo-section { padding: 35px 16px; }
+    .quiz-promo { flex-direction: column; text-align: center; gap: 24px; }
+    .quiz-promo-text h2 { font-size: 24px; letter-spacing: 3px; }
+    .quiz-promo-text p { font-size: 14px; max-width: 100%; }
+    .btn-quiz { width: 100%; max-width: 320px; padding: 16px 32px; text-align: center; }
+    
+    .chat-btn { bottom: 16px; right: 16px; width: 44px; height: 44px; }
+
+    /* ✅ ЦЕНТРИРОВАНИЕ STAY WILD И HANDMADE */
+    .hero__title {
+        font-size: 34px !important;
+        letter-spacing: 3px !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+    .handmade-section { padding: 35px 16px !important; }
+    .handmade__container {
+        flex-direction: column !important;
+        gap: 20px !important;
+        text-align: center !important;
+    }
+    .handmade__title {
+        font-size: 22px !important;
+        letter-spacing: 2px !important;
+    }
+    .handmade__text {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        max-width: 100% !important;
+        margin: 0 auto 16px !important;
+    }
+    .handmade__btn {
+        width: 100% !important;
+        max-width: 260px !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+}
+
+/* ========== МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 480px) ========== */
+@media (max-width: 480px) {
+    .catalog-header__logo a { font-size: 18px; }
+    .breadcrumb { font-size: 8px; }
+    #searchInput { padding: 12px 40px; font-size: 13px; }
+    .filter-btn { padding: 7px 14px; font-size: 10px; }
+    
+    .product-showcase { padding: 28px 12px; }
+    .product-showcase__img { height: 260px !important; }
+    .product-showcase__title { font-size: 20px; letter-spacing: 2px; }
+    .product-showcase__info { padding: 16px !important; }
+    
+    .products-grid { padding: 0 12px 24px; }
+    .quiz-promo-section { padding: 28px 12px; }
+    .quiz-promo-text h2 { font-size: 20px; letter-spacing: 2px; }
+    .btn-quiz { font-size: 13px; padding: 14px 24px; }
+
+    /* ✅ Тонкая подстройка текста на узких экранах */
+    .hero__title { font-size: 28px !important; letter-spacing: 2px !important; }
+    .handmade__title { font-size: 20px !important; }
+    .handmade__text { font-size: 13px !important; }
+}
+/* ========================================
+   📱 УБИРАЕМ БЕЛУЮ ПОЛОСКУ В НАВИГАЦИИ (768px)
+   ======================================== */
+@media (max-width: 768px) {
+    .catalog-header__nav {
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        height: auto !important;
+    }
+    .catalog-header__nav ul {
+        border-top: none !important;       /* ← Убираем верхнюю линию */
+        border-bottom: none !important;    /* ← Убираем нижнюю линию */
+        padding: 2px 0 !important;         /* ← Минимальный воздух, без блока */
+        margin: 0 !important;
+        background: transparent !important;
+    }
+    .catalog-header__nav a {
+        padding: 3px 4px !important;       /* ← Чуть меньше отступы у ссылок */
+    }
+}

@@ -1,0 +1,78 @@
+{
+  "users": [
+    {
+      "id": "admin-1",
+      "email": "admin@scala.com",
+      "password": "admin123",
+      "name": "Admin",
+      "surname": "User",
+      "role": "admin",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "loyaltyPoints": 0
+    }
+  ],
+  "products": [
+    {
+      "id": "monica-big",
+      "name": "MONICA BIG",
+      "price": 199,
+      "image": "images/catalog/monica-big.jpg",
+      "category": "chic"
+    }
+  ],
+  "cart": [
+    {
+      "userId": "admin-1",
+      "items": [
+        {
+          "productId": "monica-big",
+          "productName": "MONICA BIG",
+          "price": 199,
+          "image": "images/catalog/monica-big.jpg",
+          "quantity": 1,
+          "addedAt": "2026-06-04T14:57:09.146Z"
+        }
+      ],
+      "updatedAt": "2026-06-06T15:58:03.057Z",
+      "id": "AFxEbzHgcOA"
+    }
+  ],
+  "favorites": [
+    {
+      "userId": "admin-1",
+      "items": [
+        {
+          "productId": "monica-big",
+          "productName": "MONICA BIG",
+          "price": 199,
+          "image": "images/catalog/monica-big.jpg"
+        },
+        {
+          "productId": "snake-2",
+          "productName": "SNAKE BAG #2",
+          "price": 269,
+          "image": "images/catalog/snake-2.jpg"
+        },
+        {
+          "productId": "monica-small",
+          "productName": "MONICA SMALL",
+          "price": 179,
+          "image": "images/catalog/monica-small.jpg"
+        },
+        {
+          "productId": "greta-medium",
+          "productName": "GRETA MEDIUM",
+          "price": 229,
+          "image": "images/catalog/greta-medium.jpg"
+        }
+      ],
+      "updatedAt": "2026-06-04T19:02:37.732Z",
+      "id": "Wuw35Rm5wAg"
+    }
+  ],
+  "orders": [],
+  "reviews": [],
+  "vacancies": [],
+  "loyalty": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

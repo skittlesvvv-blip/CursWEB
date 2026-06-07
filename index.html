@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCÁLA — Брендовые сумки</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="index-page">
+
+<div class="page-wrapper">
+<header class="catalog-header">
+    <div class="catalog-header__top">
+        
+        <!-- Язык -->
+        <div class="catalog-header__lang">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <span class="lang-sep">—</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        
+        <!-- Логотип -->
+        <div class="catalog-header__logo">
+            <a href="index.html">SCÁLA</a>
+        </div>
+        
+        <!-- Иконки (десктоп) -->
+        <div class="catalog-header__icons" id="desktopIcons">
+            <button class="header-icon" id="theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon login-link" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="account.html" class="header-icon account-link" title="Личный кабинет" style="display: none;">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cartCount" class="badge">0</span>
+            </a>
+        </div>
+
+        <!-- Кнопка бургер (мобильная) -->
+        <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    
+    <!-- Навигация -->
+    <nav class="catalog-header__nav">
+        <ul>
+            <li><a href="catalog.html" data-i18n="nav_catalog">КАТАЛОГ</a></li>
+            <li><a href="about.html" data-i18n="nav_about">О НАС</a></li>
+            <li><a href="delivery.html" data-i18n="nav_delivery">ДОСТАВКА И ОПЛАТА</a></li>
+            <li><a href="custom-order.html" data-i18n="nav_custom">СДЕЛАНО НА ЗАКАЗ</a></li>
+        </ul>
+    </nav>
+
+   <!-- МОБИЛЬНОЕ МЕНЮ (компактное, справа сверху) -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__content">
+        <div class="mobile-menu__icons">
+            <button class="header-icon" id="mobile-theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="mobile-a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="mobileCartCount" class="badge">0</span>
+            </a>
+        </div>
+    </div>
+</div>
+</header>
+<!-- ===== КОНЕЦ ШАПКИ ===== -->
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1 class="hero__title" data-i18n="hero_title">STAY WILD</h1>
+    </section>
+
+    <!-- СДЕЛАНО ВРУЧНУЮ -->
+    <section class="handmade-section">
+        <div class="handmade__container">
+            <div class="handmade__image-block">
+                <img src="images/main/snake-bags.jpg" alt="Змеиная сумка">
+            </div>
+            
+            <div class="handmade__content-block">
+                <h2 class="handmade__title" data-i18n="handmade_title">СДЕЛАНО ВРУЧНУЮ</h2>
+                <p class="handmade__text" data-i18n="handmade_text">
+                    Каждая из наших сумок разрабатывается и производится в Италии опытными мастерами, 
+                    которые уже не одно поколение создают кожаные изделия, сравнимые с произведением искусства.
+                </p>
+                <button class="handmade__btn" data-i18n="btn_buy">КУПИТЬ</button>
+            </div>
+        </div>
+    </section>
+
+<!-- ===== КВИЗ «НАЙДИ СВОЮ СУМКУ» — В СТИЛЕ ГЛАВНОЙ ===== -->
+<section class="quiz-promo-section">
+    <div class="container">
+        <div class="quiz-promo">
+            <div class="quiz-promo-text">
+                <h2 data-i18n="quiz_promo_title">Найди свою сумку</h2>
+                <p data-i18n="quiz_promo_subtitle">Ответьте на 4 вопроса и получите персональные рекомендации</p>
+            </div>
+            
+            <a href="quiz.html" class="btn-quiz" data-i18n="btn_take_quiz">
+                НАЙТИ СВОЮ СУМКУ
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- Сетка товаров (исправлено: section → div, img → alt="") -->
+    <div class="catalog-section">
+        <div class="catalog__container">
+            <div class="catalog__grid">
+                <div class="catalog__item"><img src="images/main/bag-blue-orange.jpg" alt="" class="catalog__image"></div>
+                <div class="catalog__item"><img src="images/main/bag-leopard-set.jpg" alt="" class="catalog__image"></div>
+                <div class="catalog__item"><img src="images/main/bag-snake.jpg" alt="" class="catalog__image"></div>
+                <div class="catalog__item"><img src="images/main/bag-leopard.jpg" alt="" class="catalog__image"></div>
+                <div class="catalog__item"><img src="images/main/bag-blue-featured.jpg" alt="" class="catalog__image"></div>
+                <div class="catalog__item"><img src="images/main/bag-black.jpg" alt="" class="catalog__image"></div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Секция Instagram (исправлено: article → div) -->
+        <section class="instagram-section">
+            <div class="instagram__container">
+                <h2 class="instagram__title" data-i18n="instagram_title">СЛЕДИТЕ ЗА НАМИ В <span class="instagram__title-underline">INSTAGRAM</span></h2>
+                <div class="instagram__grid">
+                    <div class="instagram__item"><img src="images/main/instagram-1.jpg" alt="Instagram Scala 1" class="instagram__image" loading="lazy"></div>
+                    <div class="instagram__item instagram__item--vertical-text">
+                        <img src="images/main/instagram-2.jpg" alt="Instagram Scala 2" class="instagram__image" loading="lazy">
+                    </div>
+                    <div class="instagram__item instagram__item--video">
+                        <img src="images/main/instagram-3.jpg" alt="Instagram Scala 3" class="instagram__image" loading="lazy">  
+                    </div>
+                    <div class="instagram__item"><img src="images/main/instagram-4.jpg" alt="Instagram Scala 4" class="instagram__image" loading="lazy"></div>
+                    <div class="instagram__item"><img src="images/main/instagram-5.jpg" alt="Instagram Scala 5" class="instagram__image" loading="lazy"></div>
+                    <div class="instagram__item"><img src="images/main/instagram-6.jpg" alt="Instagram Scala 6" class="instagram__image" loading="lazy"></div>
+                    <div class="instagram__item"><img src="images/main/instagram-7.jpg" alt="Instagram Scala 7" class="instagram__image" loading="lazy"></div>
+                    <div class="instagram__item"><img src="images/main/instagram-8.jpg" alt="Instagram Scala 8" class="instagram__image" loading="lazy"></div>
+                    <div class="instagram__item instagram__item--live-text">
+                        <img src="images/main/instagram-9.jpg" alt="Instagram Scala 9" class="instagram__image" loading="lazy">
+                    </div>
+                    <div class="instagram__item instagram__item--video instagram__item--presents">
+                        <img src="images/main/instagram-10.jpg" alt="Instagram Scala 10" class="instagram__image" loading="lazy">
+                    </div>
+                    <div class="instagram__item"><img src="images/main/instagram-11.jpg" alt="Instagram Scala 11" class="instagram__image" loading="lazy"></div>
+                    <div class="instagram__item instagram__item--video">
+                        <img src="images/main/instagram-12.jpg" alt="Instagram Scala 12" class="instagram__image" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- ===== КАРТА МАГАЗИНА ===== -->
+<section class="store-map">
+    <div class="container">
+        <h2 class="section-title" data-i18n="store_title">НАШ МАГАЗИН В МОГИЛЁВЕ</h2>
+        <p class="store-address" data-i18n="store_address">ТЦ «Атриум», ул. Первомайская, 57</p>
+        
+        <div class="map-wrapper">
+            <!-- Исправлено: атрибуты iframe для HTML5 -->
+            <iframe 
+                src="https://yandex.ru/map-widget/v1/?ll=30.33934%2C53.90404&amp;z=17&amp;pt=30.33934%2C53.90404%2Cpm2wtm1&amp;title=SC%C3%80LA%20-%20%D0%A2%D0%A6%20%C2%AB%D0%90%D1%82%D1%80%D0%B8%D1%83%D0%BC%C2%BB"
+                style="width:100%; height:480px; border:0; border-radius:16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"
+                allowfullscreen 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+        <!-- ===== ФУТЕР ===== -->
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__col footer__col--left">
+                    <div class="footer__line"></div>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-i18n="footer_exchange">ОБМЕН И ВОЗВРАТ</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_warranty">ГАРАНТИЯ И УХОД</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_gift">ПОДАРОЧНАЯ КАРТА</a></li>
+                    </ul>
+                </div>
+                <div class="footer__center">
+                    <img src="images/main/footer-logo-s.png" alt="S Logo" class="footer__logo-img">
+                    <p class="footer__subscribe-text" data-i18n="footer_subscribe">ПОДПИШИТЕСЬ, ЧТОБЫ ПОЛУЧАТЬ ОБНОВЛЕНИЯ, ДОСТУП К ЭКСКЛЮЗИВНЫМ ПРЕДЛОЖЕНИЯМ</p>
+                    <form class="footer__form" action="#" method="POST">
+                        <input type="email" name="email" placeholder="NAME@EMAIL.COM" class="footer__input" required data-i18n="footer_email_placeholder">
+                        <button type="submit" class="footer__btn" data-i18n="footer_subscribe_btn">ПОДПИСАТЬСЯ</button>
+                    </form>
+                    <div class="footer__socials">
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__col footer__col--right">
+                    <div class="footer__line"></div>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-i18n="footer_contacts">КОНТАКТЫ</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_offer">ПУБЛИЧНАЯ ОФЕРТА</a></li>
+                        <li><a href="vacancies.html" class="footer__link">ВАКАНСИИ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div> <!-- ✅ ЕДИНСТВЕННЫЙ закрывающий .page-wrapper -->
+
+   <!-- Кнопка чата -->
+    <button class="chat-btn" aria-label="Открыть чат поддержки">
+        <svg viewBox="0 0 24 12" width="24" height="12">
+            <circle cx="4" cy="6" r="2" fill="#ffffff"/>
+            <circle cx="12" cy="6" r="2" fill="#ffffff"/>
+            <circle cx="20" cy="6" r="2" fill="#ffffff"/>
+        </svg>
+    </button>
+
+        <!-- ===== МОДАЛЬНЫЕ ОКНА ===== -->
+        <dialog id="modalQuickView" class="modal">
+            <div class="modal__overlay" data-close-modal></div>
+            <div class="modal__content">
+                <button class="modal__close" aria-label="Закрыть" data-close-modal>&times;</button>
+                <div class="modal__product">
+                    <!-- Исправлено: пустой src и aria-hidden для динамического заголовка -->
+                    <img id="qvImage" src="about:blank" alt="" class="modal__product-img">
+                    <div class="modal__product-info">
+                        <div id="qvTitle" class="modal__product-title" aria-hidden="true"></div>
+                        <p class="modal__product-price" id="qvPrice"></p>
+                        <p id="qvDesc" class="modal__product-desc"></p>
+                        <div class="modal__actions">
+                            <button class="btn-buy" id="qvAddToCart" data-i18n="btn_buy">КУПИТЬ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+
+        <dialog id="modalWheel" class="modal">
+            <div class="modal__overlay" data-close-modal></div>
+            <div class="modal__content modal__wheel">
+                <button class="modal__close" aria-label="Закрыть" data-close-modal>&times;</button>
+                <h2 data-i18n="wheel_title">🎡 КОЛЕСО УДАЧИ</h2>
+                <p data-i18n="wheel_desc">Крутите и получите скидку до 20%!</p>
+                <canvas id="wheelCanvas" width="300" height="300"></canvas>
+                <button class="btn-spin" id="btnSpin" data-i18n="wheel_spin">КРУТИТЬ</button>
+                <p id="wheelResult" class="wheel-result"></p>
+            </div>
+        </dialog>
+
+        <dialog id="modalLogin" class="modal">
+            <div class="modal__overlay" data-close-modal></div>
+            <div class="modal__content modal__auth">
+                <button class="modal__close" aria-label="Закрыть" data-close-modal>&times;</button>
+                <h2 data-i18n="login_title">ВХОД</h2>
+                <form id="modalLoginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="modalEmail" data-i18n="login_email">E-mail *</label>
+                        <input type="email" id="modalEmail" name="email" required>
+                        <span class="error-message" id="modalEmailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalPassword" data-i18n="login_password">Пароль *</label>
+                        <input type="password" id="modalPassword" name="password" required>
+                        <span class="error-message" id="modalPasswordError"></span>
+                    </div>
+                    <button type="submit" class="btn-submit" data-i18n="login_btn">ВОЙТИ</button>
+                </form>
+                <p class="modal__switch"><span data-i18n="login_no_account">Нет аккаунта?</span> <a href="register.html" data-i18n="login_register">Зарегистрироваться</a></p>
+            </div>
+        </dialog>
+
+        <div id="notification" class="notification" role="alert" aria-live="polite" style="display:none;">
+            <span id="notificationText"></span>
+            <button class="notification__close" aria-label="Закрыть">&times;</button>
+        </div>
+
+    <!-- ✅ КОНЕЦ .page-wrapper (убран лишний </div>) -->
+
+
+    <!-- ===== СКРИПТЫ ===== -->
+   <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/orders.js"></script>
+    <script src="js/loyalty.js"></script>
+    <script src="js/wheel.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+    // === КНОПКА АДМИН-ПАНЕЛИ (показывается только администратору) ===
+    function showAdminPanelLink() {
+        const link = document.getElementById('adminPanelLink');
+        if (!link) return;
+
+        const user = Auth?.getCurrentUser?.() || Storage.get(Storage.keys.CURRENT_USER);
+        
+        if (user && user.role === 'admin') {
+            link.style.display = 'flex';
+        } else {
+            link.style.display = 'none';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', showAdminPanelLink);
+
+    // Обновляем кнопку при входе/выходе
+    window.addEventListener('storage', (e) => {
+        if (e.key === Storage.keys.CURRENT_USER) {
+            showAdminPanelLink();
+        }
+    });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АДМИН-ПАНЕЛЬ | SCÀLA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>        
+<div class="page-wrapper">
+<header class="catalog-header">
+    <div class="catalog-header__top">
+        
+        <!-- Язык -->
+        <div class="catalog-header__lang">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <span class="lang-sep">—</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        
+        <!-- Логотип -->
+        <div class="catalog-header__logo">
+            <a href="index.html">SCÁLA</a>
+        </div>
+        
+        <!-- Иконки (десктоп) -->
+        <div class="catalog-header__icons" id="desktopIcons">
+            <button class="header-icon" id="theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon login-link" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="account.html" class="header-icon account-link" title="Личный кабинет" style="display: none;">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cartCount" class="badge">0</span>
+            </a>
+        </div>
+
+        <!-- Кнопка бургер (мобильная) -->
+        <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    
+    <!-- Навигация -->
+    <nav class="catalog-header__nav">
+        <ul>
+            <li><a href="catalog.html" data-i18n="nav_catalog">КАТАЛОГ</a></li>
+            <li><a href="about.html" data-i18n="nav_about">О НАС</a></li>
+            <li><a href="delivery.html" data-i18n="nav_delivery">ДОСТАВКА И ОПЛАТА</a></li>
+            <li><a href="custom-order.html" data-i18n="nav_custom">СДЕЛАНО НА ЗАКАЗ</a></li>
+        </ul>
+    </nav>
+
+   <!-- МОБИЛЬНОЕ МЕНЮ (компактное, справа сверху) -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__content">
+        <div class="mobile-menu__icons">
+            <button class="header-icon" id="mobile-theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="mobile-a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="mobileCartCount" class="badge">0</span>
+            </a>
+        </div>
+    </div>
+</div>
+</header>
+
+        <div class="admin-container">
+            <h1 class="admin-title" data-i18n="admin_title">АДМИН-ПАНЕЛЬ</h1>
+
+            <!-- Табы -->
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="products" data-i18n="admin_products"><i class="fas fa-box"></i> ТОВАРЫ</button>
+                <button class="tab-btn" data-tab="orders" data-i18n="admin_orders"><i class="fas fa-shopping-bag"></i> ЗАКАЗЫ</button>
+                <button class="tab-btn" data-tab="vacancies" data-i18n="admin_vacancies"><i class="fas fa-briefcase"></i> ВАКАНСИИ</button>
+                <button class="tab-btn" data-tab="custom" data-i18n="admin_custom"><i class="fas fa-pencil-ruler"></i> КАСТОМ-ЗАКАЗЫ</button>
+                <button class="tab-btn" data-tab="users" data-i18n="admin_users"><i class="fas fa-users"></i> ПОЛЬЗОВАТЕЛИ</button>
+                <button class="tab-btn" data-tab="settings" data-i18n="admin_settings"><i class="fas fa-cog"></i> НАСТРОЙКИ</button>
+            </div>
+
+            <!-- ТОВАРЫ -->
+            <div id="products" class="admin-section active">
+                <div class="section-header">
+                    <h2 data-i18n="admin_products">Управление товарами</h2>
+                    <button class="btn" onclick="showAddProductModal()" data-i18n="admin_add_product">+ Добавить товар</button>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Фото</th>
+                            <th data-i18n="admin_name">Название</th>
+                            <th data-i18n="admin_price">Цена</th>
+                            <th data-i18n="admin_category">Категория</th>
+                            <th data-i18n="admin_actions">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- ЗАКАЗЫ -->
+            <div id="orders" class="admin-section">
+                <h2 data-i18n="admin_orders">Управление заказами</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="admin_order_id">ID заказа</th>
+                            <th data-i18n="admin_order_user">Клиент</th>
+                            <th data-i18n="admin_order_email">Email</th>
+                            <th data-i18n="admin_order_total">Сумма</th>
+                            <th data-i18n="admin_order_date">Дата</th>
+                            <th data-i18n="admin_order_status">Статус</th>
+                            <th data-i18n="admin_actions">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- ВАКАНСИИ -->
+            <div id="vacancies" class="admin-section">
+                <h2 data-i18n="admin_vacancies">Вакансии</h2>
+                <p class="empty-state" data-i18n="admin_no_vacancies">Актуальные вакансии</p>
+            </div>
+
+            <!-- КАСТОМ-ЗАКАЗЫ -->
+            <div id="custom" class="admin-section">
+                <h2 data-i18n="admin_custom">Кастом-заказы</h2>
+                <p class="empty-state" data-i18n="admin_no_custom">Заявки на индивидуальные сумки</p>
+            </div>
+
+            <!-- ПОЛЬЗОВАТЕЛИ -->
+            <div id="users" class="admin-section">
+                <h2 data-i18n="admin_users">Пользователи</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th data-i18n="admin_user_email">Email</th>
+                            <th data-i18n="admin_user_name">Имя</th>
+                            <th data-i18n="admin_user_role">Роль</th>
+                            <th data-i18n="admin_user_registered">Дата регистрации</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr><td>1</td><td>admin@scala.com</td><td>Администратор</td><td>admin</td><td>2025-01-01</td></tr>
+                        <tr><td>2</td><td>skittles@mail.ru</td><td>Skittles</td><td>user</td><td>2025-05-20</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- НАСТРОЙКИ -->
+            <div id="settings" class="admin-section">
+                <h2 data-i18n="admin_settings">Настройки сайта</h2>
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label data-i18n="admin_loyalty_threshold">Порог программы лояльности (BYN)</label>
+                        <input type="number" id="loyaltyThreshold" value="10000">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="admin_max_discount">Максимальная скидка колеса удачи (%)</label>
+                        <input type="number" id="maxDiscount" value="20">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="admin_contact_phone">Контактный телефон</label>
+                        <input type="tel" id="contactPhone" value="+375 (29) 217-88-28">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="admin_contact_email">Email</label>
+                        <input type="email" id="contactEmail" value="info@scalabag.com">
+                    </div>
+                    <button onclick="saveSettings()" class="btn" data-i18n="btn_save">Сохранить настройки</button>
+                </div>
+
+                <!-- Блок управления данными -->
+                <div class="admin-card danger-card" style="margin-top: 40px;">
+                    <div class="admin-card__header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3 data-i18n="admin_data">Управление данными</h3>
+                    </div>
+                    <div class="admin-card__body">
+                        <p class="warning-text" data-i18n="admin_reset_desc">
+                            <strong>Внимание!</strong><br>
+                            Это действие удалит <strong>все</strong> данные сайта (товары, заказы, пользователи, настройки).
+                        </p>
+                        <button onclick="resetAllData()" class="btn-reset" data-i18n="admin_reset_btn">
+                            ⚠️ СБРОСИТЬ ВСЕ ДАННЫЕ
+                        </button>
+                        <p class="small-text" data-i18n="admin_reset_note">Это действие необратимо</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ФУТЕР ===== -->
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__col footer__col--left">
+                    <div class="footer__line"></div>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-i18n="footer_exchange">ОБМЕН И ВОЗВРАТ</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_warranty">ГАРАНТИЯ И УХОД</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_gift">ПОДАРОЧНАЯ КАРТА</a></li>
+                    </ul>
+                </div>
+                <div class="footer__center">
+                    <img src="images/main/footer-logo-s.png" alt="S Logo" class="footer__logo-img">
+                    <p class="footer__subscribe-text" data-i18n="footer_subscribe">ПОДПИШИТЕСЬ, ЧТОБЫ ПОЛУЧАТЬ ОБНОВЛЕНИЯ, ДОСТУП К ЭКСКЛЮЗИВНЫМ ПРЕДЛОЖЕНИЯМ</p>
+                    <form class="footer__form" action="#" method="POST">
+                        <input type="email" name="email" placeholder="NAME@EMAIL.COM" class="footer__input" required data-i18n="footer_email_placeholder">
+                        <button type="submit" class="footer__btn" data-i18n="footer_subscribe_btn">ПОДПИСАТЬСЯ</button>
+                    </form>
+                    <div class="footer__socials">
+                        <!-- твои социальные сети -->
+                    </div>
+                </div>
+                <div class="footer__col footer__col--right">
+                    <div class="footer__line"></div>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-i18n="footer_contacts">КОНТАКТЫ</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_offer">ПУБЛИЧНАЯ ОФЕРТА</a></li>
+                        <li><a href="vacancies.html" class="footer__link" data-i18n="footer_career">ВАКАНСИИ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Модальное окно добавления товара -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <h2 data-i18n="admin_add_product">Добавить новый товар</h2>
+            <label data-i18n="admin_name">Название товара</label>
+            <input type="text" id="newName" placeholder="Например: MONICA BIG">
+            <label data-i18n="admin_price">Цена (BYN)</label>
+            <input type="number" id="newPrice" placeholder="229">
+            <label data-i18n="admin_category">Категория</label>
+            <select id="newCategory">
+                <option value="chic">CHIC</option>
+                <option value="classic">CLASSIC</option>
+                <option value="casual">CASUAL</option>
+            </select>
+            <div class="modal-buttons">
+                <button onclick="addNewProduct()" class="btn" data-i18n="admin_add">ДОБАВИТЬ ТОВАР</button>
+                <button onclick="closeModal()" class="btn-secondary" data-i18n="btn_cancel">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+     <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/main.js"></script>
+
+   <script>
+    // === Глобальные переменные ===
+    let orders = []; // Массив заказов (загружается с сервера)
+
+    // === Переключение табов ===
+    function initTabs() {
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+                btn.classList.add('active');
+                const tabId = btn.dataset.tab;
+                if (tabId && document.getElementById(tabId)) {
+                    document.getElementById(tabId).classList.add('active');
+                }
+            });
+        });
+    }
+
+    // === Ф-5: Управление заказами (работа с JSON Server) ===
+
+    // Загрузка заказов с сервера
+    async function loadOrdersFromServer() {
+        try {
+            const res = await fetch(`${API_BASE}/orders`);
+            if (res.status === 404) {
+                orders = [];
+                return;
+            }
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            orders = await res.json();
+            // Если сервер вернул не массив — защищаемся
+            if (!Array.isArray(orders)) orders = [];
+        } catch (e) {
+            console.warn('[Admin] Не удалось загрузить заказы с сервера, используем пустой список');
+            orders = [];
+        }
+    }
+
+    // Сохранение изменений заказа на сервер
+    async function saveOrderToServer(order) {
+        try {
+            await fetch(`${API_BASE}/orders/${order.id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(order)
+            });
+            return true;
+        } catch (e) {
+            console.error('[Admin] Ошибка сохранения заказа:', e);
+            return false;
+        }
+    }
+
+    // Удаление заказа с сервера
+    async function deleteOrderFromServer(orderId) {
+        try {
+            await fetch(`${API_BASE}/orders/${orderId}`, { method: 'DELETE' });
+            return true;
+        } catch (e) {
+            console.error('[Admin] Ошибка удаления заказа:', e);
+            return false;
+        }
+    }
+
+    // Отрисовка таблицы заказов
+    function renderOrders() {
+        const tbody = document.getElementById('ordersTableBody');
+        if (!tbody) return;
+
+        tbody.innerHTML = '';
+
+        // Защита: если orders не массив — берем пустой
+        const safeOrders = Array.isArray(orders) ? orders : [];
+
+        if (safeOrders.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding: 20px; color: #888;">Заказов пока нет</td></tr>';
+            return;
+        }
+
+        safeOrders.forEach((order, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><strong>${order.id || '—'}</strong></td>
+                <td>${order.userName || order.client || '—'}</td>
+                <td>${order.userEmail || order.email || '—'}</td>
+                <td>${order.total || order.amount || 0} BYN</td>
+                <td>${order.createdAt || order.date || '—'}</td>
+                <td>
+                    <select onchange="changeOrderStatus('${order.id}', this.value)" class="status-select">
+                        <option value="Новый" ${order.status === "Новый" ? "selected" : ""}>Новый</option>
+                        <option value="Подтверждён" ${order.status === "Подтверждён" ? "selected" : ""}>Подтверждён</option>
+                        <option value="В доставке" ${order.status === "В доставке" ? "selected" : ""}>В доставке</option>
+                        <option value="Завершён" ${order.status === "Завершён" ? "selected" : ""}>Завершён</option>
+                        <option value="Отменён" ${order.status === "Отменён" ? "selected" : ""}>Отменён</option>
+                    </select>
+                </td>
+                <td>
+                    <button onclick="deleteOrder('${order.id}')" style="color:red;background:none;border:none;cursor:pointer;font-size:18px;">🗑</button>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    // Изменение статуса заказа
+    window.changeOrderStatus = async function(orderId, newStatus) {
+        const order = orders.find(o => o.id === orderId);
+        if (order) {
+            order.status = newStatus;
+            await saveOrderToServer(order);
+            renderOrders(); // Перерисовываем таблицу
+        }
+    };
+
+    // Удаление заказа
+    window.deleteOrder = async function(orderId) {
+        if (confirm('Удалить этот заказ?')) {
+            const success = await deleteOrderFromServer(orderId);
+            if (success) {
+                // Удаляем из локального массива и перерисовываем
+                orders = orders.filter(o => o.id !== orderId);
+                renderOrders();
+            } else {
+                alert('❌ Не удалось удалить заказ');
+            }
+        }
+    };
+
+    // === Ф-4: Управление товарами (визуальная часть) ===
+    function showAddProductModal() {
+        document.getElementById('addProductModal').style.display = 'flex';
+    }
+    function closeModal() {
+        document.getElementById('addProductModal').style.display = 'none';
+    }
+
+    // Загрузка товаров в таблицу (визуально, для демо)
+    function loadProducts() {
+        const tbody = document.getElementById('productsTableBody');
+        if (!tbody) return;
+        tbody.innerHTML = '';
+
+        const products = [
+            {id: 'black-1', name: 'BLACK', price: 219, category: 'chic'},
+            {id: 'blue-dark', name: 'BLUE/DARK', price: 229, category: 'classic'},
+            {id: 'greta-medium', name: 'GRETA MEDIUM', price: 229, category: 'casual'},
+            {id: 'leopard-1', name: 'LEOPARD', price: 239, category: 'chic'},
+            {id: 'monica-big', name: 'MONICA BIG', price: 199, category: 'classic'},
+            {id: 'monica-small', name: 'MONICA SMALL', price: 179, category: 'casual'},
+            {id: 'snake-1', name: 'SNAKE BAG #1', price: 259, category: 'chic'},
+            {id: 'snake-2', name: 'SNAKE BAG #2', price: 269, category: 'chic'},
+            {id: 'snake-3', name: 'SNAKE BAG #3', price: 249, category: 'chic'}
+        ];
+
+        products.forEach(p => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>#${p.id}</td>
+                <td><img src="images/catalog/${p.id}.jpg" alt="${p.name}" style="width:50px;height:50px;object-fit:cover;border-radius:6px;"></td>
+                <td>${p.name}</td>
+                <td>${p.price} BYN</td>
+                <td>${p.category.toUpperCase()}</td>
+                <td>
+                    <button onclick="alert('Редактирование ${p.name} в разработке')" style="margin-right:8px;">✏️</button>
+                    <button onclick="this.closest('tr').remove()" style="color:red;">🗑</button>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    // === Сброс всех данных ===
+    function resetAllData() {
+        if (!confirm('⚠️ ВНИМАНИЕ!\n\nЭто действие полностью удалит ВСЕ данные сайта.\n\nПродолжить?')) {
+            return;
+        }
+        try {
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('scala_')) {
+                    localStorage.removeItem(key);
+                }
+            });
+            alert('✅ Данные браузера сброшены! (Для полного сброса очистите также db.json)');
+            location.reload();
+        } catch (e) {
+            alert('❌ Ошибка при сбросе данных');
+            console.error(e);
+        }
+    }
+
+    // === Инициализация при загрузке страницы ===
+    document.addEventListener('DOMContentLoaded', async () => {
+        loadProducts();
+        initTabs();
+        
+        // Загружаем заказы с сервера и отображаем их
+        await loadOrdersFromServer();
+        renderOrders();
+    });
+
+    console.log('%c[Admin] Панель администратора загружена', 'color:#c9a66b');
+</script>

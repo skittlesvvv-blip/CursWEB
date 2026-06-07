@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РЕГИСТРАЦИЯ | SCÀLA</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<div class="page-wrapper">
+<header class="catalog-header">
+    <div class="catalog-header__top">
+        
+        <!-- Язык -->
+        <div class="catalog-header__lang">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <span class="lang-sep">—</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        
+        <!-- Логотип -->
+        <div class="catalog-header__logo">
+            <a href="index.html">SCÁLA</a>
+        </div>
+        
+        <!-- Иконки (десктоп) -->
+        <div class="catalog-header__icons" id="desktopIcons">
+            <button class="header-icon" id="theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon login-link" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="account.html" class="header-icon account-link" title="Личный кабинет" style="display: none;">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cartCount" class="badge">0</span>
+            </a>
+        </div>
+
+        <!-- Кнопка бургер (мобильная) -->
+        <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    
+    <!-- Навигация -->
+    <nav class="catalog-header__nav">
+        <ul>
+            <li><a href="catalog.html" data-i18n="nav_catalog">КАТАЛОГ</a></li>
+            <li><a href="about.html" data-i18n="nav_about">О НАС</a></li>
+            <li><a href="delivery.html" data-i18n="nav_delivery">ДОСТАВКА И ОПЛАТА</a></li>
+            <li><a href="custom-order.html" data-i18n="nav_custom">СДЕЛАНО НА ЗАКАЗ</a></li>
+        </ul>
+    </nav>
+
+   <!-- МОБИЛЬНОЕ МЕНЮ (компактное, справа сверху) -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__content">
+        <div class="mobile-menu__icons">
+            <button class="header-icon" id="mobile-theme-toggle" title="Сменить тему">
+                <i class="fas fa-adjust"></i>
+            </button>
+            <button class="header-icon" id="mobile-a11y-btn" title="Версия для слабовидящих">
+                <i class="fas fa-universal-access"></i>
+            </button>
+            <a href="login.html" class="header-icon" title="Войти">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="favorites.html" class="header-icon" title="Избранное">
+                <i class="far fa-heart"></i>
+            </a>
+            <a href="cart.html" class="header-icon" title="Корзина">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="mobileCartCount" class="badge">0</span>
+            </a>
+        </div>
+    </div>
+</div>
+</header>
+<!-- ===== КОНЕЦ ШАПКИ ===== -->
+    <!-- Хлебные крошки -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html" data-i18n="btn_home">ГЛАВНАЯ</a> <span>/</span> <span data-i18n="register_breadcrumb">РЕГИСТРАЦИЯ</span>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="auth-page">
+        <div class="auth-container">
+
+            <h1 class="auth-title" data-i18n="register_title">НОВЫЙ АККАУНТ</h1>
+
+            <p class="auth-subtitle">
+                <span data-i18n="register_already_have">Уже есть аккаунт?</span> <a href="login.html" data-i18n="register_login_link">Войти</a>
+            </p>
+
+            <form id="registerForm" class="auth-form">
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label data-i18n="register_email_label">E-mail *</label>
+                    <input type="email" id="email" required placeholder="your@email.com" data-i18n-placeholder="register_email_placeholder">
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <!-- Пароль -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-i18n="register_password_label">Пароль *</label>
+                        <input type="password" id="password" required placeholder="••••••••" data-i18n-placeholder="register_password_placeholder">
+                        <span class="error-message" id="passwordError"></span>
+                        <small class="form-hint" data-i18n="register_password_hint">* Минимум 6 символов и хотя бы одна цифра</small>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="register_confirm_password_label">Повторите пароль *</label>
+                        <input type="password" id="passwordConfirm" required placeholder="••••••••" data-i18n-placeholder="register_confirm_password_placeholder">
+                        <span class="error-message" id="passwordConfirmError"></span>
+                    </div>
+                </div>
+
+                <!-- Имя и Фамилия -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-i18n="register_name_label">Имя *</label>
+                        <input type="text" id="name" required placeholder="Ваше имя" data-i18n-placeholder="register_name_placeholder">
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="register_surname_label">Фамилия *</label>
+                        <input type="text" id="surname" required placeholder="Ваша фамилия" data-i18n-placeholder="register_surname_placeholder">
+                        <span class="error-message" id="surnameError"></span>
+                    </div>
+                </div>
+
+                <!-- Телефон -->
+                <div class="form-group">
+                    <label data-i18n="register_phone_label">Телефон</label>
+                    <input type="tel" id="phone" placeholder="+375(29)1234567" data-i18n-placeholder="register_phone_placeholder">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+
+                <!-- Дата рождения -->
+                <div class="form-group">
+                    <label data-i18n="register_birthdate_label">Дата рождения *</label>
+                    <input type="text" id="birthDate" required placeholder="дд-мм-гггг" data-i18n-placeholder="register_birthdate_placeholder">
+                    <span class="error-message" id="birthDateError"></span>
+                </div>
+
+                <!-- Никнейм -->
+                <div class="form-group">
+                    <label data-i18n="register_nickname_label">Никнейм</label>
+                    <div class="nickname-group">
+                        <input type="text" id="nickname" readonly placeholder="auto_generated" data-i18n-placeholder="register_nickname_placeholder">
+                        <button type="button" class="btn-regenerate" id="btnRegenerate" data-i18n="register_regenerate_btn">✒️ Сгенерировать</button>
+                    </div>
+                </div>
+
+ <!-- Подписка -->
+<div class="form-group checkbox-group">
+    <label class="checkbox-row">
+        <input type="checkbox" id="subscribe">
+        <span data-i18n="register_subscribe">Я хочу подписаться на рассылку, чтобы получить приоритетный доступ к распродажам</span>
+    </label>
+</div>
+
+<!-- Согласие -->
+<div class="form-group checkbox-group">
+    <label class="checkbox-row">
+        <input type="checkbox" id="agree" required>
+        <span data-i18n="register_agree">Я согласен с <a href="#" target="_blank" data-i18n="register_agree_link">Соглашением пользователя</a> *</span>
+    </label>
+    <span class="error-message" id="agreeError"></span>
+</div>
+
+                <button type="submit" class="btn-submit" id="btnRegister" disabled data-i18n="register_submit_btn">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+
+                <p class="success-message" id="successMessage" style="display:none;"></p>
+                <p class="error-message" id="formError" style="display:none;"></p>
+            </form>
+
+        </div>
+    </main>
+   <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__col footer__col--left">
+                <div class="footer__line"></div>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link" data-i18n="footer_exchange">ОБМЕН И ВОЗВРАТ</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="footer_warranty">ГАРАНТИЯ И УХОД</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="footer_gift">ПОДАРОЧНАЯ КАРТА</a></li>
+                </ul>
+            </div>
+            <div class="footer__center">
+                <img src="images/main/footer-logo-s.png" alt="S Logo" class="footer__logo-img">
+                <p class="footer__subscribe-text" data-i18n="footer_subscribe">ПОДПИШИТЕСЬ, ЧТОБЫ ПОЛУЧАТЬ ОБНОВЛЕНИЯ, ДОСТУП К ЭКСКЛЮЗИВНЫМ ПРЕДЛОЖЕНИЯМ</p>
+                <form class="footer__form" action="#" method="POST">
+                    <input type="email" name="email" placeholder="NAME@EMAIL.COM" class="footer__input" required data-i18n-placeholder="footer_email_placeholder">
+                    <button type="submit" class="footer__btn" data-i18n="footer_subscribe_btn">ПОДПИСАТЬСЯ</button>
+                </form>
+                <div class="footer__socials">
+                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__col footer__col--right">
+                <div class="footer__line"></div>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link" data-i18n="footer_contacts">КОНТАКТЫ</a></li>
+                    <li><a href="#" class="footer__link" data-i18n="footer_offer">ПУБЛИЧНАЯ ОФЕРТА</a></li>
+                    <li><a href="vacancies.html" class="footer__link">ВАКАНСИИ</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<!-- Кнопка чата -->
+<button class="chat-btn" aria-label="Открыть чат поддержки">
+    <svg viewBox="0 0 24 12" width="24" height="12">
+        <circle cx="4" cy="6" r="2" fill="#ffffff"/>
+        <circle cx="12" cy="6" r="2" fill="#ffffff"/>
+        <circle cx="20" cy="6" r="2" fill="#ffffff"/>
+    </svg>
+</button>
+ <!-- Скрипты -->
+  <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/vacancies.js"></script>
+    <script src="js/main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registerForm');
+    if (!form) return;
+
+    let nicknameAttempts = 0;
+    const MAX_NICKNAME_ATTEMPTS = 5;
+
+    function generateNickname() {
+        const adjectives = ['wild', 'bold', 'free', 'swift', 'grace', 'luxe', 'pure', 'vivid'];
+        const nouns = ['soul', 'spirit', 'vibe', 'essence', 'aura', 'glow', 'pulse', 'flow'];
+        const num = Math.floor(Math.random() * 999);
+        return adjectives[Math.floor(Math.random() * adjectives.length)] + 
+               nouns[Math.floor(Math.random() * nouns.length)] + num;
+    }
+
+    function setNickname(nick) {
+        document.getElementById('nickname').value = nick;
+    }
+
+    setNickname(generateNickname());
+
+    document.getElementById('btnRegenerate').addEventListener('click', function() {
+        if (nicknameAttempts < MAX_NICKNAME_ATTEMPTS) {
+            nicknameAttempts++;
+            setNickname(generateNickname());
+            if (nicknameAttempts === MAX_NICKNAME_ATTEMPTS) {
+                document.getElementById('nickname').removeAttribute('readonly');
+                document.getElementById('nickname').placeholder = 'Введите свой никнейм';
+                this.textContent = '✏️ Изменить';
+            }
+        } else {
+            document.getElementById('nickname').focus();
+        }
+    });
+
+    const inputs = form.querySelectorAll('input[required]');
+    inputs.forEach(input => {
+        input.addEventListener('blur', () => validateField(input));
+        input.addEventListener('input', () => {
+            clearError(input.id);
+            checkFormValidity();
+        });
+    });
+
+    document.getElementById('passwordConfirm').addEventListener('blur', function() {
+        const pwd = document.getElementById('password').value;
+        const confirm = this.value;
+        const errorEl = document.getElementById('passwordConfirmError');
+
+        if (confirm && pwd !== confirm) {
+            errorEl.textContent = 'Пароли не совпадают';
+            errorEl.classList.add('show');
+            this.classList.add('input-error');
+        } else {
+            errorEl.classList.remove('show');
+            this.classList.remove('input-error');
+        }
+        checkFormValidity();
+    });
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        document.getElementById('formError').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'none';
+
+        let isValid = true;
+        inputs.forEach(input => {
+            if (!validateField(input)) isValid = false;
+        });
+
+        const agree = document.getElementById('agree');
+        if (!agree.checked) {
+            document.getElementById('agreeError').textContent = 'Необходимо согласие';
+            document.getElementById('agreeError').classList.add('show');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            if (typeof showNotification === 'function') {
+                showNotification('Пожалуйста, исправьте ошибки в форме', 'error');
+            }
+            return;
+        }
+
+        const userData = {
+            id: Date.now(),
+            email: document.getElementById('email').value.trim(),
+            password: document.getElementById('password').value,
+            name: document.getElementById('name').value.trim(),
+            surname: document.getElementById('surname').value.trim(),
+            phone: document.getElementById('phone').value.trim(),
+            birthDate: document.getElementById('birthDate').value.trim(),
+            nickname: document.getElementById('nickname').value.trim() || generateNickname(),
+            subscribe: document.getElementById('subscribe').checked,
+            role: 'buyer',
+            createdAt: new Date().toISOString()
+        };
+
+        try {
+            const users = Storage.get(Storage.keys.USERS) || [];
+
+            if (users.find(u => u.email === userData.email)) {
+                if (typeof showFormError === 'function') showFormError('Пользователь с таким email уже существует');
+                return;
+            }
+
+            users.push(userData);
+            Storage.set(Storage.keys.USERS, users);
+            Storage.set(Storage.keys.CURRENT_USER, { ...userData, password: undefined });
+
+            document.getElementById('successMessage').textContent = 'Регистрация успешна!';
+            document.getElementById('successMessage').style.display = 'block';
+
+            setTimeout(() => {
+                location.href = 'index.html';
+            }, 1200);
+
+        } catch (err) {
+            console.error(err);
+            if (typeof showFormError === 'function') showFormError('Ошибка регистрации. Попробуйте позже.');
+        }
+    });
+
+    function validateField(input) {
+        const value = input.value.trim();
+        const errorEl = document.getElementById(input.id + 'Error');
+        let isValid = true;
+
+        if (!value && input.required) {
+            errorEl.textContent = 'Обязательное поле';
+            isValid = false;
+        } else if (input.id === 'password') {
+            if (value.length < 6) {
+                errorEl.textContent = 'Минимум 6 символов';
+                isValid = false;
+            } else if (!/\d/.test(value)) {
+                errorEl.textContent = 'Должен содержать хотя бы одну цифру';
+                isValid = false;
+            }
+        } else if (input.pattern && value && !new RegExp(input.pattern).test(value)) {
+            if (input.id === 'email') errorEl.textContent = 'Некорректный email';
+            else if (input.id === 'phone') errorEl.textContent = 'Формат: +375(29)1234567';
+            else errorEl.textContent = 'Неверный формат';
+            isValid = false;
+        }
+
+        if (!isValid) {
+            errorEl.classList.add('show');
+            input.classList.add('input-error');
+        } else {
+            errorEl.classList.remove('show');
+            input.classList.remove('input-error');
+        }
+
+        return isValid;
+    }
+
+    function clearError(fieldId) {
+        const errorEl = document.getElementById(fieldId + 'Error');
+        const inputEl = document.getElementById(fieldId);
+        if (errorEl) errorEl.classList.remove('show');
+        if (inputEl) inputEl.classList.remove('input-error');
+    }
+
+    function checkFormValidity() {
+        const required = ['email', 'password', 'passwordConfirm', 'name', 'surname', 'birthDate'];
+        const allFilled = required.every(id => document.getElementById(id).value.trim());
+        const match = document.getElementById('password').value === document.getElementById('passwordConfirm').value;
+        const agree = document.getElementById('agree').checked;
+
+        document.getElementById('btnRegister').disabled = !(allFilled && match && agree);
+    }
+});
+</script>
+<!-- Модальное окно успешной регистрации -->
+<div id="successModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 data-i18n="register_success_title">Регистрация прошла успешно!</h2>
+        </div>
+        <div class="modal-body">
+            <p data-i18n="register_success_text">Добро пожаловать в SCÀLA! 🎉</p>
+            <p data-i18n="register_success_subtext">Теперь вы можете пользоваться всеми возможностями сайта.</p>
+        </div>
+        <div class="modal-footer">
+            <button id="modalCloseBtn" class="btn-submit" data-i18n="register_success_btn">Перейти на главную</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

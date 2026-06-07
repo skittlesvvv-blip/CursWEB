@@ -1,0 +1,462 @@
+/* ========================================
+   ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ (СТРОГО ПО ГОСТ)
+   ======================================== */
+
+/* === ГЛОБАЛЬНЫЕ ОГРАНИЧЕНИЯ РЕЖИМА === */
+.accessibility-mode {
+    /* Ширина строки ≤ 80 знаков (~65ch) */
+    max-width: 65ch !important;
+    margin: 0 auto !important;
+    
+    /* Текст выровнен по левому краю */
+    text-align: left !important;
+    
+    /* Межстрочный интервал ≥ 1.5× кегля */
+    line-height: 1.8 !important;
+    
+    /* Интервал между буквами ≥ 0.12× */
+    letter-spacing: 0.12em !important;
+    
+    /* Интервал между словами ≥ 0.16× */
+    word-spacing: 0.16em !important;
+    
+    /* Перенос длинных слов, запрет горизонтального скролла */
+    word-wrap: break-word;
+    overflow-x: hidden !important;
+    
+    /* Отступы между блоками текста */
+    p, li, h2, h3, .text-block { margin-bottom: 1.5em !important; }
+    
+    /* Запрет анимаций (требование доступности) */
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* === ПАНЕЛЬ УПРАВЛЕНИЯ === */
+.a11y-panel {
+    background: #f5f5f5;
+    border-bottom: 3px solid #000;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.a11y-panel__container {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+}
+
+.a11y-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.a11y-label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.a11y-btn {
+    padding: 10px 16px;
+    border: 2px solid #000;
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.a11y-btn:hover {
+    background: #e0e0e0;
+}
+
+.a11y-btn.active,
+.a11y-btn[aria-pressed="true"] {
+    background: #000;
+    color: #fff;
+    outline: 3px solid var(--accent, #c9a66b);
+    outline-offset: 2px;
+}
+
+.a11y-btn:focus-visible {
+    outline: 3px solid #0056b3;
+    outline-offset: 2px;
+}
+
+.a11y-back {
+    margin-left: auto;
+    padding: 10px 20px;
+    background: #0056b3;
+    color: #fff;
+    border: 2px solid #0056b3;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.a11y-back:hover {
+    background: #004494;
+    border-color: #004494;
+}
+
+/* === ШАПКА ВЕРСИИ === */
+.a11y-header {
+    background: #fff;
+    border-bottom: 3px solid #000;
+    padding: 24px 0;
+}
+
+.a11y-header__container {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.a11y-logo {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-size: 32px;
+    margin: 0;
+    letter-spacing: 2px;
+    color: inherit;
+}
+
+.a11y-nav {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.a11y-nav a {
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    color: inherit;
+}
+
+.a11y-nav a:hover,
+.a11y-nav a:focus-visible,
+.a11y-nav a.active {
+    border-color: #000;
+    background: rgba(0,0,0,0.05);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* === ОСНОВНОЙ КОНТЕНТ === */
+.a11y-content {
+    min-height: 60vh;
+    padding: 40px 0;
+}
+
+.a11y-container {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.a11y-section {
+    margin-bottom: 48px;
+}
+
+.a11y-heading {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    color: inherit;
+}
+
+.a11y-subheading {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: inherit;
+}
+
+.a11y-text {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    text-align: left;
+    color: inherit;
+}
+
+.a11y-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+}
+
+.a11y-list li {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    padding-left: 28px;
+    position: relative;
+    color: inherit;
+}
+
+.a11y-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: inherit;
+}
+
+.a11y-button {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #0056b3;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #0056b3;
+    border-radius: 4px;
+    margin-top: 16px;
+    transition: background 0.15s;
+}
+
+.a11y-button:hover {
+    background: #004494;
+    border-color: #004494;
+}
+
+.a11y-link {
+    color: #0056b3;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+}
+
+.a11y-link:hover {
+    color: #003366;
+    text-decoration-thickness: 2px;
+}
+
+/* === ФУТЕР ВЕРСИИ === */
+.a11y-footer {
+    background: #f5f5f5;
+    border-top: 3px solid #000;
+    padding: 24px 0;
+    text-align: center;
+}
+
+.a11y-footer__text {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: inherit;
+}
+
+.a11y-back-link {
+    font-size: 16px;
+    color: #0056b3;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.a11y-back-link:hover {
+    color: #003366;
+}
+
+/* === ЦВЕТОВЫЕ СХЕМЫ (ВЫСОКИЙ КОНТРАСТ) === */
+.scheme-white-black {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+.scheme-white-black .a11y-header,
+.scheme-white-black .a11y-panel {
+    background: #ffffff !important;
+    border-color: #000000 !important;
+}
+.scheme-white-black .a11y-btn {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+.scheme-white-black .a11y-btn:hover,
+.scheme-white-black .a11y-btn.active {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+.scheme-black-white {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+.scheme-black-white .a11y-header,
+.scheme-black-white .a11y-panel {
+    background: #000000 !important;
+    border-color: #ffffff !important;
+}
+.scheme-black-white .a11y-logo,
+.scheme-black-white .a11y-nav a,
+.scheme-black-white .a11y-label,
+.scheme-black-white .a11y-text,
+.scheme-black-white .a11y-heading,
+.scheme-black-white .a11y-subheading,
+.scheme-black-white .a11y-list li,
+.scheme-black-white .a11y-footer__text {
+    color: #ffffff !important;
+}
+.scheme-black-white .a11y-btn {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+.scheme-black-white .a11y-btn:hover,
+.scheme-black-white .a11y-btn.active {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+.scheme-black-white .a11y-back,
+.scheme-black-white .a11y-button,
+.scheme-black-white .a11y-link {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+.scheme-black-white .a11y-back:hover,
+.scheme-black-white .a11y-button:hover {
+    background: #cccccc !important;
+}
+
+.scheme-blue-darkblue {
+    background: #dbeeff !important;
+    color: #000080 !important;
+}
+.scheme-blue-darkblue .a11y-header,
+.scheme-blue-darkblue .a11y-panel {
+    background: #dbeeff !important;
+    border-color: #000080 !important;
+}
+.scheme-blue-darkblue .a11y-btn {
+    background: #dbeeff !important;
+    color: #000080 !important;
+    border-color: #000080 !important;
+}
+.scheme-blue-darkblue .a11y-btn:hover,
+.scheme-blue-darkblue .a11y-btn.active {
+    background: #000080 !important;
+    color: #dbeeff !important;
+}
+.scheme-blue-darkblue .a11y-back,
+.scheme-blue-darkblue .a11y-button,
+.scheme-blue-darkblue .a11y-link {
+    background: #000080 !important;
+    color: #dbeeff !important;
+    border-color: #000080 !important;
+}
+.scheme-blue-darkblue .a11y-back:hover,
+.scheme-blue-darkblue .a11y-button:hover {
+    background: #000050 !important;
+}
+
+/* === МАСШТАБИРОВАНИЕ ШРИФТОВ === */
+.font-small .a11y-heading { font-size: 24px !important; }
+.font-small .a11y-subheading { font-size: 18px !important; }
+.font-small .a11y-text,
+.font-small .a11y-list li,
+.font-small .a11y-btn,
+.font-small .a11y-nav a { font-size: 16px !important; }
+
+.font-medium .a11y-heading { font-size: 28px !important; }
+.font-medium .a11y-subheading { font-size: 22px !important; }
+.font-medium .a11y-text,
+.font-medium .a11y-list li,
+.font-medium .a11y-btn,
+.font-medium .a11y-nav a { font-size: 18px !important; }
+
+.font-large .a11y-heading { font-size: 34px !important; }
+.font-large .a11y-subheading { font-size: 26px !important; }
+.font-large .a11y-text,
+.font-large .a11y-list li,
+.font-large .a11y-btn,
+.font-large .a11y-nav a { font-size: 22px !important; }
+
+/* === СКРЫТИЕ ИЗОБРАЖЕНИЙ === */
+.images-hidden img {
+    display: none !important;
+}
+.img-alt-text {
+    display: inline-block;
+    background: rgba(128, 128, 128, 0.15);
+    border: 1px dashed #666;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-style: italic;
+    margin: 8px 0;
+    border-radius: 4px;
+    color: inherit;
+}
+.scheme-black-white .img-alt-text {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: #888 !important;
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 768px) {
+    .a11y-panel__container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+    .a11y-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .a11y-back {
+        margin-left: 0;
+        margin-top: 8px;
+        text-align: center;
+    }
+    .a11y-header__container {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    .a11y-nav {
+        justify-content: center;
+        width: 100%;
+    }
+    .a11y-heading { font-size: 24px !important; }
+    .a11y-subheading { font-size: 20px !important; }
+}
+
+@media (max-width: 320px) {
+    .a11y-btn,
+    .a11y-back,
+    .a11y-button {
+        padding: 10px 12px;
+        font-size: 15px !important;
+        width: 100%;
+        text-align: center;
+    }
+    .a11y-heading { font-size: 22px !important; }
+    .a11y-subheading { font-size: 18px !important; }
+    .a11y-text, .a11y-list li { font-size: 16px !important; }
+}

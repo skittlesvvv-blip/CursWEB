@@ -1,0 +1,440 @@
+/* ========================================
+   ABOUT PAGE - СТИЛИ (ФИНАЛЬНАЯ ВЕРСИЯ)
+   ======================================== */
+
+body {
+    background-color: #000000;
+}
+
+.page-wrapper {
+    max-width: 1152px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 9999px #000000;
+}
+
+/* === ШАПКА === */
+/* ========================================
+   ЕДИНАЯ ШАПКА (одинаковая на всех страницах)
+   ======================================== */
+
+.catalog-header {
+    background-color: #ffffff;
+    padding: 20px 48px;
+    border-bottom: 1px solid #eee;
+}
+
+.catalog-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Логотип по центру */
+.catalog-header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.catalog-header__logo a {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+/* Язык */
+.catalog-header__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #000;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+/* Иконки */
+.catalog-header__icons {
+    display: flex;
+    gap: 18px;
+    color: #000;
+    align-items: center;
+}
+
+/* Навигация */
+.catalog-header__nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+}
+
+.catalog-header__nav a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Активный пункт */
+.catalog-header__nav a.is-active {
+    color: #c9a66b;
+    font-weight: 600;
+}
+
+.catalog-header__nav a.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #c9a66b;
+}
+/* === ХЛЕБНЫЕ КРОШКИ === */
+.breadcrumb {
+    padding: 20px 48px;
+    background-color: #ffffff;
+}
+
+.breadcrumb .container {
+    max-width: 1152px;  /* ← ИЗМЕНЕНО С 1440px НА 1152px */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.breadcrumb a {
+    color: #000000;
+    text-decoration: none;
+}
+.hero-banner {
+    margin-top: 10px;   /* ← можно увеличить, если нужно сильнее опустить */
+}
+/* ====================== КОМПАКТНОЕ БУРГЕР-МЕНЮ ====================== */
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #000000;
+    cursor: pointer;
+    padding: 8px 15px;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 100%;               /* сразу под шапкой */
+    right: 15px;             /* справа */
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 15px 20px;
+    display: none;
+    z-index: 10000;
+    min-width: 220px;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu__icons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mobile-menu__icons .header-icon {
+    color: #ffffff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Показываем бургер на мобильных */
+@media (max-width: 800px) {
+    #desktopIcons {
+        display: none !important;
+    }
+    .burger-btn {
+        display: block !important;
+    }
+}
+/* === ЗАГОЛОВОК "О БРЕНДЕ" === */
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    letter-spacing: 6px;
+    text-align: center;
+    margin: 50px 0 20px;
+}
+
+/* === ТРИ СТРОЧКИ (по центру) === */
+.section-text {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #444;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* === ФОТО ПОСЛЕ ТЕКСТА (по центру + отступ) === */
+.about-image {
+    max-width: 700px;
+    margin: 50px 30px;           /* ← центрирование + отступ сверху и снизу */
+    padding: 0 20px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;         /* ← лёгкое скругление (по желанию) */
+}
+/* === ОСНОВНОЙ ТЕКСТ (по левому краю, тонкий) === */
+.about-desc-text,
+.production-section p,
+.consumption-section p {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.85;
+    color: #444;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto 16px;
+}
+
+/* === ФОТО === */
+.about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* === ЦИТАТА === */
+.quote-section {
+    padding: 50px 0;
+}
+
+.quote-box {
+    background: #ffffff;                    /* ← Белый фон */
+    border: 40px solid #e5e5e5;              /* ← Лёгкая рамка как в каталоге */
+    padding: 40px 40px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.highlight-title {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 400;                       /* ← Тонкий текст (не жирный) */
+    letter-spacing: 4px;
+    line-height: 1.35;
+    color: #111;
+    margin: 0;
+}
+
+/* === ПОДЗАГОЛОВКИ (ПРОИЗВОДСТВО / РАЗУМНОЕ ПОТРЕБЛЕНИЕ) === */
+.section-subtitle {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* === ПРОИЗВОДСТВО (убраны отступы между абзацами) === */
+.production-section {
+    padding: 50px 0;
+}
+
+.production-section p {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.85;
+    color: #444;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto 8px;        /* ← Уменьшил отступ между абзацами */
+}
+
+/* Убираем отступ у последнего абзаца */
+.production-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* === ВИДЕО (на всю ширину) === */
+.video-section {
+    padding: 40px 0;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1152px;
+    margin: 0 auto;
+}
+
+.video-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: #c9a66b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* === РАЗУМНОЕ ПОТРЕБЛЕНИЕ === */
+.consumption-section {
+    padding: 50px 0;
+}
+
+.consumption-gallery {
+    max-width: 800px;
+    margin: 30px auto 0;
+}
+
+.consumption-gallery img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* === КНОПКА ЧАТА === */
+.chat-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background-color: #333333;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.chat-btn:hover {
+    background-color: #000000;
+}/* ========================================
+   ФОТО ПОСЛЕ ХЛЕБНЫХ КРОШЕК (ПРОСТОЕ УМЕНЬШЕНИЕ)
+   ======================================== */
+
+/* Контейнер: разрешаем фото выходить за границы, если нужно */
+.about-hero,
+.about-main-photo,
+.hero-banner {
+    width: 100%;
+    overflow: visible !important; /* Гарантия, что края не обрежутся */
+    padding: 0 0px;
+    box-sizing: border-box;
+}
+
+/* Само фото: масштабируется только по ширине */
+.about-hero img,
+.about-main-photo img,
+.hero-banner img {
+    width: 100%;
+    max-width: 1152px;
+    height: auto !important;      /* Сохраняет естественные пропорции */
+    max-height: none !important;  /* Убираем ограничение, которое резало фото */
+    object-fit: unset !important; /* Отключаем обрезку/растягивание */
+    display: block;
+    margin: 20px auto;            /* Отступ сверху и снизу */
+}
+
+/* Мобильные: просто уменьшаем боковые отступы */
+@media (max-width: 768px) {
+    .about-hero,
+    .about-main-photo,
+    .hero-banner {
+        padding: 0 16px;
+    }
+    .about-hero img,
+    .about-main-photo img,
+    .hero-banner img {
+        margin: 30px auto;
+    }
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+    .about-hero img,
+    .about-main-photo img {
+        max-height: 520px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero img,
+    .about-main-photo img {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero img,
+    .about-main-photo img {
+        max-height: 300px;
+    }
+}
+/* ========================================
+   ФИКСИРУЕМ ШАПКУ НА СТРАНИЦЕ "О НАС"
+   ======================================== */
+
+.catalog-header {
+    position: sticky !important;   /* прилипает сверху при прокрутке */
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95) !important;   /* тёмный фон, чтобы не сливалась */
+    backdrop-filter: blur(8px);
+    padding: 18px 48px !important;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,553 @@
+/* ========================================
+   PRODUCT PAGE STYLES
+   ======================================== */
+
+body {
+    background-color: #000000;
+}
+
+.page-wrapper {
+    max-width: 1152px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 9999px #000000;
+}
+
+/* ========================================
+   ЕДИНАЯ ШАПКА (как в каталоге)
+   ======================================== */
+
+
+.catalog-header {
+    background-color: #ffffff;
+    padding: 20px 48px;
+    border-bottom: 1px solid #eee;
+}
+
+.catalog-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Логотип по центру */
+.catalog-header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.catalog-header__logo a {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+/* Язык */
+.catalog-header__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #000;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+/* Иконки */
+.catalog-header__icons {
+    display: flex;
+    gap: 18px;
+    color: #000;
+    align-items: center;
+}
+
+/* Навигация */
+.catalog-header__nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+}
+
+.catalog-header__nav a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Активный пункт */
+.catalog-header__nav a.is-active {
+    color: #c9a66b;
+    font-weight: 600;
+}
+
+.catalog-header__nav a.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #c9a66b;
+}
+/* === ХЛЕБНЫЕ КРОШКИ === */
+.breadcrumb {
+    padding: 20px 48px;
+    background-color: #ffffff;
+}
+
+.breadcrumb .container {
+    max-width: 1152px;  /* ← ИЗМЕНЕНО С 1440px НА 1152px */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.breadcrumb a {
+    color: #000000;
+    text-decoration: none;
+}
+.hero-banner {
+    margin-top: 10px;   /* ← можно увеличить, если нужно сильнее опустить */
+}
+/* ====================== КОМПАКТНОЕ БУРГЕР-МЕНЮ ====================== */
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #000000;
+    cursor: pointer;
+    padding: 8px 15px;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 100%;               /* сразу под шапкой */
+    right: 15px;             /* справа */
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 15px 20px;
+    display: none;
+    z-index: 10000;
+    min-width: 220px;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu__icons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mobile-menu__icons .header-icon {
+    color: #ffffff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Показываем бургер на мобильных */
+@media (max-width: 800px) {
+    #desktopIcons {
+        display: none !important;
+    }
+    .burger-btn {
+        display: block !important;
+    }
+}
+/* ========================================
+   СТРАНИЦА ТОВАРА
+   ======================================== */
+
+.product-page {
+    padding: 60px 0 80px;
+}
+
+/* --- ОСНОВНАЯ СЕТКА ТОВАРА --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.product-image {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.product-image:hover img {
+    transform: scale(1.03);
+}
+
+/* --- ИНФОРМАЦИЯ О ТОВАРЕ --- */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.product-title {
+    font-family: var(--font-sans);
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.product-price {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.current-price {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.old-price {
+    font-size: 16px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+.discount {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+    background: rgba(201, 166, 107, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+/* --- ВЫБОР ЦВЕТА --- */
+.product-colors {
+    margin-top: 8px;
+}
+
+.color-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.color-options {
+    display: flex;
+    gap: 10px;
+}
+
+.color-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    /* Важно: не даём наследовать фон */
+    background-color: inherit;
+}
+
+.color-btn.active {
+    border-color: var(--text-primary);
+    transform: scale(1.1);
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ========================================
+   ФИНАЛЬНЫЙ ФИКС ДЛЯ ТЁМНОЙ ТЕМЫ
+   ======================================== */
+
+body.theme-dark .color-btn {
+    background-color: unset !important;        /* ← самое важное */
+    border: 3px solid #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.3) !important;
+}
+
+body.theme-dark .color-btn:hover {
+    border-color: #c9a66b !important;
+    transform: scale(1.12);
+}
+
+body.theme-dark .color-btn.active {
+    border-color: #c9a66b !important;
+    box-shadow: 0 0 0 5px rgba(201, 166, 107, 0.5) !important;
+    transform: scale(1.15);
+}
+/* --- КНОПКИ ДЕЙСТВИЙ --- */
+/* === КНОПКА КУПИТЬ (основная) === */
+.btn-buy {
+    flex: 1;
+    min-width: 180px;
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 18px 32px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.btn-buy:hover {
+    background: #c9a66b;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(201, 166, 107, 0.3);
+}
+
+.btn-buy:active {
+    transform: translateY(0);
+}
+
+.btn-buy:disabled {
+    background: #ccc;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* === КНОПКА "НАМЕКНУТЬ О ПОДАРКЕ" === */
+.btn-gift {
+    flex: 0 0 auto;
+    background: transparent;
+    color: #111;
+    border: 1px solid #111;
+    padding: 17px 28px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.btn-gift:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* --- ТАБЫ --- */
+.product-tabs {
+    margin-top: 32px;
+}
+
+.tabs-nav {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text-primary);
+}
+
+.tab-content {
+    display: none;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content a {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+/* --- ПОХОЖИЕ ТОВАРЫ --- */
+.related-products {
+    padding: 60px 0 80px;
+}
+
+.related-title {
+    text-align: center;
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.related-item {
+    aspect-ratio: 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #f8f8f8;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-item:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-sm);
+}
+
+.related-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* ========================================
+   КРИТИЧЕСКИЙ ФИКС ЦВЕТОВЫХ КРУЖОЧКОВ
+   (должен быть САМЫМ ПОСЛЕДНИМ правилом в файле!)
+   ======================================== */
+
+body.theme-dark .color-btn,
+body.theme-dark .product-colors .color-btn {
+    background-color: inherit !important;
+    background: inherit !important;
+}
+
+body.theme-dark .color-btn:hover,
+body.theme-dark .color-btn.active {
+    background-color: inherit !important;
+    background: inherit !important;
+}
+/* Сохраняем прежний вид заголовков после смены тегов */
+.reviews-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+    color: inherit;
+}
+
+.review-form-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem;
+    color: inherit;
+}
+/* ========================================
+   АДАПТИВНОСТЬ
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-page {
+        padding: 40px 0 60px;
+    }
+
+    .product-actions {
+        flex-direction: column;
+    }
+
+    .btn-buy,
+    .btn-gift {
+        width: 100%;
+    }
+
+    .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}

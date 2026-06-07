@@ -1,0 +1,546 @@
+/* ========================================
+   ЕДИНАЯ ШАПКА (одинаковая на всех страницах)
+   ======================================== */
+
+.catalog-header {
+    background-color: #ffffff;
+    padding: 20px 48px;
+    border-bottom: 1px solid #eee;
+}
+
+.catalog-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Логотип по центру */
+.catalog-header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.catalog-header__logo a {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+/* Язык */
+.catalog-header__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #000;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+/* Иконки */
+.catalog-header__icons {
+    display: flex;
+    gap: 18px;
+    color: #000;
+    align-items: center;
+}
+
+/* === НАВИГАЦИЯ (точно как в "О нас") === */
+.catalog-header__nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+}
+
+.catalog-header__nav a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Активный пункт — золотистый */
+.catalog-header__nav a.is-active {
+    color: #c9a66b;
+    font-weight: 600;
+}
+
+.catalog-header__nav a.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #c9a66b;
+}
+
+/* === ХЛЕБНЫЕ КРОШКИ === */
+.breadcrumb {
+    padding: 20px 48px;
+    background-color: #ffffff;
+}
+
+.breadcrumb .container {
+    max-width: 1152px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.breadcrumb a {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* === ГЛАВНЫЙ ПРОДУКТ === */
+.product-showcase {
+    padding: 80px 48px 80px;
+    background-color: #ffffff;
+}
+
+.product-showcase .container {
+    max-width: 1152px;
+    margin: 0 auto;
+}
+
+.product-showcase__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+}
+
+.product-showcase__info-wrapper {
+    background-color: #f5f5f5;
+    padding: 40px 40px 40px 0px;
+    height: 100%;
+    min-height: 400px;
+}
+
+.product-showcase__info {
+    background-color: #ffffff;
+    padding: 75px;
+}
+
+.product-showcase--reverse .product-showcase__grid {
+    direction: rtl;
+}
+.product-showcase--reverse .product-showcase__grid > * {
+    direction: ltr;
+}
+.product-showcase--reverse .product-showcase__info-wrapper {
+    padding: 60px 40px 60px 60px;
+}
+
+.product-showcase__img {
+    width: 100%;
+    background-color: #f8f8f8;
+    overflow: hidden;
+}
+.product-showcase__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.product-showcase__img:hover img { transform: scale(1.02); }
+
+.product-showcase__title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 8px;
+    color: #000000;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+.product-showcase__title span {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    letter-spacing: 4px;
+    opacity: 0.6;
+}
+.product-showcase__text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #4a4a4a;
+    max-width: 400px;
+}
+
+/* === СЕТКА ТОВАРОВ === */
+.products-grid {
+    padding: 0 48px 60px;
+    background-color: #ffffff;
+}
+
+.products-grid .container {
+    max-width: 1152px;
+    margin: 0 auto;
+}
+
+.products-grid__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.products-grid__row--five {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.products-grid__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.products-grid__item:hover img { transform: scale(1.05); }
+
+.products-grid__item:nth-child(1) { margin-top: -90px; }
+.products-grid__row .products-grid__item:nth-child(2) { margin-top: 50px; }
+
+/* === МОНИКА СМАЛЛ — ФОТО СТРОГО СЛЕВА === */
+.product-showcase:nth-of-type(3) .product-showcase__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    direction: ltr !important;
+}
+.product-showcase:nth-of-type(3) .product-showcase__img {
+    grid-column: 1;
+    direction: ltr !important;
+}
+.product-showcase:nth-of-type(3) .product-showcase__info-wrapper {
+    grid-column: 2;
+    direction: ltr !important;
+    padding: 40px 40px 40px 0px !important;
+}
+
+.products-grid__row--five .products-grid__item:nth-child(3) { margin-top: -90px; }
+.products-grid__row--five .products-grid__item:nth-child(4) { margin-top: -90px; }
+
+/* === GRETA BLOCK === */
+.greta-block { margin-top: 0.5px; }
+.greta-block .product-showcase__info { padding: 75px !important; }
+
+/* === ПОЛОСКА-РАЗДЕЛИТЕЛЬ === */
+.section-divider {
+    width: 100%;
+    background-color: #000;
+    margin: 0.5px 0;
+    display: block;
+    border: none;
+    box-shadow: none;
+}
+
+.greta-line { display: none !important; }
+
+/* === КНОПКА ЧАТА (КАТАЛОГ) === */
+.chat-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background-color: #333333;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.chat-btn:hover { transform: scale(1.1); background-color: #000000; }
+.chat-btn svg circle { fill: #ffffff; }
+
+/* ========================================
+   ФИЛЬТРЫ КАТЕГОРИЙ + ПОИСК
+   ======================================== */
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 35px 0 30px;
+    padding: 0 20px;
+}
+
+.filter-btn {
+    padding: 12px 32px;
+    border: 2px solid #e5e5e5;
+    background: #ffffff;
+    color: #333;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.filter-btn:hover {
+    border-color: #c9a66b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(201, 166, 107, 0.15);
+}
+
+.filter-btn.active {
+    background: #c9a66b;
+    color: white;
+    border-color: #c9a66b;
+}
+
+/* ========================================
+   ПОИСК
+   ======================================== */
+
+.search-bar {
+    padding: 30px 48px 20px;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.search-container {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-container i {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c9a66b;
+    font-size: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 18px 55px;
+    border: 2px solid #eee;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #c9a66b;
+    box-shadow: 0 0 0 4px rgba(201, 166, 107, 0.15);
+}
+
+.clear-btn {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+}
+
+/* ========================================
+   УДАЛЕНИЕ ПОДЧЁРКИВАНИЙ У ССЫЛОК
+   ======================================== */
+
+.products-grid__item a,
+.products-grid__item a:hover,
+.products-grid__item a:focus,
+.products-grid__item a:visited,
+.products-grid__item a:active,
+.products-grid__item a * {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.products-grid__item .item-name,
+.products-grid__item .item-price {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    color: #111111 !important;
+}
+
+.products-grid__item:hover .item-name {
+    color: #c9a66b !important;
+}
+
+/* ========================================
+   📱 ЕДИНЫЙ МОБИЛЬНЫЙ АДАПТИВ (768px и меньше)
+   ======================================== */
+@media (max-width: 768px) {
+    /* ШАПКА */
+    .catalog-header__top { padding: 12px 16px; }
+    .catalog-header__logo a { font-size: 22px; }
+    .catalog-header__nav { display: none; }
+    .breadcrumb { padding: 12px 16px; font-size: 9px; }
+    .search-bar { padding: 20px 16px 16px; }
+    .category-filters { padding: 0 16px; margin: 25px 0 30px; }
+    .filter-btn { padding: 10px 20px; font-size: 11px; }
+
+    /* SHOWCASE-БЛОКИ (Monica, Greta) */
+    .product-showcase { padding: 40px 16px 50px; }
+    
+    .product-showcase__grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* СТРОГО В ОДНУ КОЛОНКУ: фото сверху, текст снизу */
+        gap: 0 !important;
+        direction: ltr !important;
+        align-items: start !important;
+    }
+
+    /* ФОТО: жёсткая высота, чтобы не схлопывалось */
+    .product-showcase__img {
+        height: 320px !important;
+        width: 100% !important;
+        overflow: hidden;
+        display: block !important;
+        background: #f8f8f8;
+    }
+    .product-showcase__img a,
+    .product-showcase__img img {
+        display: block !important;
+        width: 100% !important;
+        height: 320px !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+
+    /* СЕРЫЙ БЛОК: авто-высота, по центру */
+    .product-showcase__info-wrapper {
+        padding: 24px 20px !important;
+        background: #f5f5f5;
+        text-align: center;
+        height: auto !important;
+        min-height: auto !important;
+        width: 100%;
+    }
+    .product-showcase__info {
+        padding: 20px !important;
+        background: #fff;
+        text-align: center;
+        max-width: 100%;
+    }
+    .product-showcase__title { font-size: 22px; letter-spacing: 3px; margin-bottom: 12px; }
+    .product-showcase__text { font-size: 13px; line-height: 1.6; max-width: 100%; margin: 0 auto; }
+
+    /* СЕТКА КАТАЛОГА (змеиные сумки и др.) */
+    .products-grid { padding: 0 16px 40px; }
+    .products-grid__row,
+    .products-grid__row--five {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px;
+    }
+    .products-grid__item {
+        background: #f9f9f9;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .products-grid__item img {
+        height: 220px !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+    .products-grid__item:nth-child(n) { margin-top: 0 !important; }
+}
+
+/* Очень маленькие экраны (iPhone SE и т.д.) */
+@media (max-width: 480px) {
+    .product-showcase__img,
+    .product-showcase__img img { height: 260px !important; }
+    .products-grid__row,
+    .products-grid__row--five { grid-template-columns: 1fr !important; }
+    .products-grid__item img { height: 260px !important; }
+    .product-showcase__title { font-size: 20px; }
+    .product-showcase__info-wrapper,
+    .product-showcase__info { padding: 18px 16px !important; }
+}
+/* 🔒 ФИНАЛЬНОЕ ИСПРАВЛЕНИЕ: GRETA НА МОБИЛЬНЫХ (768px) */
+@media (max-width: 768px) {
+    /* 1. Принудительно одна колонка для Greta */
+    .greta-block .product-showcase__grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        grid-auto-flow: row !important; /* СТРОГО вертикально: фото → текст */
+        gap: 0 !important;
+        direction: ltr !important;
+    }
+
+    /* 2. Фото: фиксированная высота, блочный элемент */
+    .greta-block .product-showcase__img {
+        grid-column: 1 !important;
+        height: 320px !important;
+        width: 100% !important;
+        display: block !important;
+        overflow: hidden;
+        background: #f8f8f8;
+    }
+    .greta-block .product-showcase__img a,
+    .greta-block .product-showcase__img img {
+        display: block !important;
+        width: 100% !important;
+        height: 320px !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+
+    /* 3. Серый блок: авто-высота, центрирование */
+    .greta-block .product-showcase__info-wrapper {
+        grid-column: 1 !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 24px 20px !important;
+        background: #f5f5f5;
+        text-align: center;
+    }
+    .greta-block .product-showcase__info {
+        padding: 20px !important;
+        background: #fff;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    /* 4. ОТМЕНА глобального правила, которое ломало адаптив */
+    .greta-block .product-showcase__info {
+        padding: 20px !important; /* Перебиваем старый padding: 75px */
+    }
+}

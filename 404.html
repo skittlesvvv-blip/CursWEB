@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | SCÀLA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/404.css">
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <!-- Шапка (упрощённая) -->
+        <header class="catalog-header">
+            <div class="catalog-header__top">
+                <div class="catalog-header__logo"><a href="index.html">SCÀLA</a></div>
+                <a href="index.html" class="btn-home" data-i18n="btn_home">← На главную</a>
+            </div>
+        </header>
+
+        <!-- Контент 404 -->
+        <main class="error-page">
+            <div class="container">
+                <div class="error-content">
+                    <h1 class="error-code">404</h1>
+                    <h2 class="error-title" data-i18n="error_404_title">Страница не найдена</h2>
+                    <p class="error-text" data-i18n="error_404_text">Извините, страница, которую вы ищете, не существует или была перемещена.</p>
+                    <div class="error-actions">
+                        <a href="index.html" class="btn-primary" data-i18n="btn_home">На главную</a>
+                        <a href="catalog.html" class="btn-secondary" data-i18n="btn_catalog">В каталог</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ===== ФУТЕР ===== -->
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__col footer__col--left">
+                    <div class="footer__line"></div>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-i18n="footer_exchange">ОБМЕН И ВОЗВРАТ</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_warranty">ГАРАНТИЯ И УХОД</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_gift">ПОДАРОЧНАЯ КАРТА</a></li>
+                    </ul>
+                </div>
+                <div class="footer__center">
+                    <img src="images/main/footer-logo-s.png" alt="S Logo" class="footer__logo-img">
+                    <p class="footer__subscribe-text" data-i18n="footer_subscribe">ПОДПИШИТЕСЬ, ЧТОБЫ ПОЛУЧАТЬ ОБНОВЛЕНИЯ, ДОСТУП К ЭКСКЛЮЗИВНЫМ ПРЕДЛОЖЕНИЯМ</p>
+                    <form class="footer__form" action="#" method="POST">
+                        <input type="email" name="email" placeholder="NAME@EMAIL.COM" class="footer__input" required data-i18n="footer_email_placeholder">
+                        <button type="submit" class="footer__btn" data-i18n="footer_subscribe_btn">ПОДПИСАТЬСЯ</button>
+                    </form>
+                    <div class="footer__socials">
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__col footer__col--right">
+                    <div class="footer__line"></div>
+                    <ul class="footer__list">
+                        <li><a href="#" class="footer__link" data-i18n="footer_contacts">КОНТАКТЫ</a></li>
+                        <li><a href="#" class="footer__link" data-i18n="footer_offer">ПУБЛИЧНАЯ ОФЕРТА</a></li>
+                        <li><a href="vacancies.html" class="footer__link" data-i18n="footer_career">КАРЬЕРА</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Кнопка чата -->
+        <button class="chat-btn" aria-label="Открыть чат поддержки">
+            <svg viewBox="0 0 24 12" width="24" height="12">
+                <circle cx="4" cy="6" r="2" fill="#ffffff"/>
+                <circle cx="12" cy="6" r="2" fill="#ffffff"/>
+                <circle cx="20" cy="6" r="2" fill="#ffffff"/>
+            </svg>
+        </button>
+
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

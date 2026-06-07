@@ -1,0 +1,288 @@
+/* ========================================
+   VACANCIES.CSS — Страница "Карьера" SCÀLA
+   ======================================== */
+
+/* ==================== ТВОИ ПРАВКИ (ШАПКА + ХЛЕБНЫЕ КРОШКИ) ==================== */
+.catalog-header {
+    background-color: #ffffff;
+    padding: 20px 48px;
+    border-bottom: 1px solid #eee;
+}
+
+.catalog-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.catalog-header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.catalog-header__logo a {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+.catalog-header__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #000;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+.catalog-header__icons {
+    display: flex;
+    gap: 18px;
+    color: #000;
+    align-items: center;
+}
+
+.catalog-header__nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+}
+
+.catalog-header__nav a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+.catalog-header__nav a.is-active {
+    color: #c9a66b;
+    font-weight: 600;
+}
+
+.catalog-header__nav a.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #c9a66b;
+}
+
+.breadcrumb {
+    padding: 20px 48px;
+    background-color: #ffffff;
+}
+
+.breadcrumb .container {
+    max-width: 1152px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.breadcrumb a {
+    color: #000000;
+    text-decoration: none;
+}
+/* ====================== КОМПАКТНОЕ БУРГЕР-МЕНЮ ====================== */
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #000000;
+    cursor: pointer;
+    padding: 8px 15px;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 100%;               /* сразу под шапкой */
+    right: 15px;             /* справа */
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 15px 20px;
+    display: none;
+    z-index: 10000;
+    min-width: 220px;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu__icons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mobile-menu__icons .header-icon {
+    color: #ffffff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Показываем бургер на мобильных */
+@media (max-width: 800px) {
+    #desktopIcons {
+        display: none !important;
+    }
+    .burger-btn {
+        display: block !important;
+    }
+}
+/* ==================== HERO + ВАКАНСИИ + ФОРМА ==================== */
+.vacancies-hero {
+    text-align: center;
+    padding: 100px 20px 70px;
+    background: linear-gradient(180deg, #f9f6f0 0%, #f5f0e8 100%);
+    margin-bottom: 60px;
+    border-radius: 0 0 30px 30px;
+}
+
+.vacancies-hero h1 {
+    font-family: var(--font-serif);
+    font-size: 42px;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.vacancies-hero p {
+    font-size: 19px;
+    max-width: 680px;
+    margin: 0 auto;
+    color: #555;
+    line-height: 1.6;
+}
+
+.vacancies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.vacancy-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.vacancy-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(201, 166, 107, 0.15);
+}
+
+/* ==================== ФОРМА ==================== */
+.vacancy-form-section {
+    background: #faf9f6;
+    border-radius: 24px;
+    padding: 50px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.btn-submit {
+    margin-top: 10px;
+    padding: 18px;
+    background: #c9a66b;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+/* ==================== ИСПРАВЛЕНИЕ ФУТЕРА ==================== */
+/* Убираем горизонтальную чёрную полосу сверху футера */
+.vacancies-page .footer,
+.vacancies-page footer,
+.page-wrapper > footer {
+    border-top: none !important;
+    margin-top: 0 !important;
+    padding-top: 60px !important;
+}
+/* ==================== КНОПКА "ОТКЛИКНУТЬСЯ" (уменьшенная) ==================== */
+.vacancy-card .btn-apply {
+    width: 100%;
+    padding: 12px 20px;           /* уменьшили высоту */
+    background: linear-gradient(90deg, #c9a66b, #d4b37a);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;          /* чуть меньше скругление */
+    font-size: 14.5px;            /* уменьшили шрифт */
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(201, 166, 107, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 20px;
+}
+
+.vacancy-card .btn-apply:hover {
+    background: linear-gradient(90deg, #b89558, #c9a66b);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(201, 166, 107, 0.4);
+}
+
+.vacancy-card .btn-apply:active {
+    transform: translateY(0);
+}
+
+.vacancy-card .btn-apply::before {
+    content: "→";
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.vacancy-card .btn-apply:hover::before {
+    transform: translateX(5px);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

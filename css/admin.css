@@ -1,0 +1,636 @@
+/* ========================================
+   АДМИН-ПАНЕЛЬ — СТИЛИ
+   ======================================== */
+
+/* ========================================
+   ЕДИНАЯ ШАПКА
+   ======================================== */
+.catalog-header {
+    background-color: #ffffff;
+    padding: 20px 48px;
+    border-bottom: 1px solid #eee;
+}
+
+.catalog-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.catalog-header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.catalog-header__logo a {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+.catalog-header__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #000;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+.catalog-header__icons {
+    display: flex;
+    gap: 18px;
+    color: #000;
+    align-items: center;
+}
+
+/* Навигация */
+.catalog-header__nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+}
+
+.catalog-header__nav a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+.catalog-header__nav a.is-active {
+    color: #c9a66b;
+    font-weight: 600;
+}
+
+.catalog-header__nav a.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #c9a66b;
+}
+
+/* Хлебные крошки */
+.breadcrumb {
+    padding: 20px 48px;
+    background-color: #ffffff;
+}
+
+.breadcrumb .container {
+    max-width: 1152px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #000000;
+}
+/* ====================== КОМПАКТНОЕ БУРГЕР-МЕНЮ ====================== */
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #000000;
+    cursor: pointer;
+    padding: 8px 15px;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 100%;               /* сразу под шапкой */
+    right: 15px;             /* справа */
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 15px 20px;
+    display: none;
+    z-index: 10000;
+    min-width: 220px;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu__icons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mobile-menu__icons .header-icon {
+    color: #ffffff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Показываем бургер на мобильных */
+@media (max-width: 800px) {
+    #desktopIcons {
+        display: none !important;
+    }
+    .burger-btn {
+        display: block !important;
+    }
+}
+/* ========================================
+   ОСНОВНОЕ СОДЕРЖИМОЕ АДМИНКИ
+   ======================================== */
+.admin-container {
+    padding: 40px 48px;
+    max-width: 1152px;
+    margin: 0 auto;
+}
+
+.admin-title {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    letter-spacing: 6px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+/* Табы */
+.admin-tabs {
+    display: flex;
+    gap: 8px;
+    background: #f8f8f8;
+    padding: 8px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 14px 24px;
+    border: none;
+    background: #fff;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.tab-btn.active {
+    background: #c9a66b;
+    color: white;
+    box-shadow: 0 4px 12px rgba(201, 166, 107, 0.4);
+}
+
+.tab-btn:hover:not(.active) {
+    transform: translateY(-2px);
+}
+
+/* Секции */
+.admin-section {
+    display: none;
+}
+.admin-section.active {
+    display: block;
+}
+
+/* Таблицы */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.admin-table th {
+    background: #f8f8f8;
+    padding: 18px 20px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #555;
+}
+
+.admin-table td {
+    padding: 18px 20px;
+    border-top: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.admin-table tr:hover {
+    background: #fdfaf4;
+}
+
+.admin-table img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Кнопки */
+.btn {
+    background: #c9a66b;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #b89558;
+    transform: translateY(-2px);
+}
+
+/* Модальное окно */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 45px 40px 35px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+/* ====================== ПРЕМИУМ БЛОК СБРОСА ДАННЫХ ====================== */
+.danger-zone {
+    margin: 50px 0 30px 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #fffaf0, #fff0e6);
+    border: 3px solid #c9a66b;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    box-shadow: 0 10px 40px rgba(201, 166, 107, 0.25);
+}
+
+.danger-zone__icon {
+    font-size: 58px;
+    color: #c9a66b;
+    flex-shrink: 0;
+}
+
+.danger-zone__text h3 {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #111;
+    margin: 0 0 12px 0;
+}
+
+.danger-zone__text p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.danger-note {
+    font-size: 14px;
+    color: #b38a4f;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.btn-danger {
+    margin-top: 20px;
+    background: #c9a66b;
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(201, 166, 107, 0.3);
+}
+
+.btn-danger:hover {
+    background: #b38a4f;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(201, 166, 107, 0.4);
+}
+
+/* ========================================
+   АДАПТИВНОСТЬ
+   ======================================== */
+@media (max-width: 768px) {
+    .admin-container { padding: 30px 20px; }
+    .admin-tabs { flex-wrap: wrap; }
+}
+/* ========================================
+   📱 АДМИН-ПАНЕЛЬ — АДАПТИВ 420px (МОБИЛЬНЫЙ)
+   ======================================== */
+@media (max-width: 420px) {
+    /* Контейнер: минимум отступов */
+    .admin-container {
+        padding: 16px 12px !important;
+    }
+    
+    /* Заголовок */
+    .admin-title {
+        font-size: 20px;
+        letter-spacing: 2px;
+        text-align: center;
+        margin: 20px 0 16px;
+    }
+    
+    /* 🔁 ТАБЫ: горизонтальный скролл */
+    .admin-tabs {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 8px 4px 12px;
+        margin-bottom: 20px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+    }
+    
+    .admin-tabs::-webkit-scrollbar {
+        height: 4px;
+    }
+    .admin-tabs::-webkit-scrollbar-thumb {
+        background: #c9a66b;
+        border-radius: 2px;
+    }
+    
+    .tab-btn {
+        flex-shrink: 0;
+        padding: 10px 16px;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+        border-radius: 8px;
+        white-space: nowrap;
+        scroll-snap-align: start;
+    }
+    
+    .tab-btn i {
+        margin-right: 4px;
+        font-size: 12px;
+    }
+    
+    /* Секции */
+    .admin-section {
+        padding: 0;
+    }
+    
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    
+    .section-header h2 {
+        font-size: 16px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    
+    .section-header .btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+    
+    /* 📊 ТАБЛИЦЫ: горизонтальный скролл */
+    .admin-table {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .admin-table thead {
+        position: sticky;
+        top: 0;
+        background: #f8f8f8;
+        z-index: 1;
+    }
+    
+    .admin-table th,
+    .admin-table td {
+        padding: 10px 8px !important;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    
+    .admin-table th:first-child,
+    .admin-table td:first-child {
+        position: sticky;
+        left: 0;
+        background: #fff;
+        z-index: 2;
+        border-right: 1px solid #eee;
+    }
+    
+    /* Картинки в таблице */
+    .admin-table img {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 4px;
+    }
+    
+    /* Кнопки действий в таблице */
+    .admin-table button {
+        font-size: 14px;
+        padding: 4px 8px;
+        min-width: auto;
+    }
+    
+    /* Выпадающий статус */
+    .status-select {
+        font-size: 11px;
+        padding: 4px 6px;
+        max-width: 120px;
+    }
+    
+    /* 📝 ФОРМА НАСТРОЕК */
+    .settings-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .form-group {
+        margin-bottom: 0;
+    }
+    
+    .form-group label {
+        font-size: 12px;
+        margin-bottom: 6px;
+        display: block;
+    }
+    
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 8px;
+        min-height: 44px;
+        box-sizing: border-box;
+    }
+    
+    .settings-form .btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 13px;
+        border-radius: 8px;
+        margin-top: 8px;
+    }
+    
+    /* ⚠️ ОПАСНАЯ КАРТОЧКА */
+    .danger-card {
+        margin-top: 30px !important;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    
+    .admin-card__header {
+        padding: 16px !important;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .admin-card__header i {
+        font-size: 24px;
+    }
+    
+    .admin-card__header h3 {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+    
+    .admin-card__body {
+        padding: 16px !important;
+        text-align: center;
+    }
+    
+    .warning-text {
+        font-size: 11px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+    }
+    
+    .btn-reset {
+        width: 100%;
+        padding: 12px;
+        font-size: 12px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+    }
+    
+    .small-text {
+        font-size: 10px;
+        opacity: 0.7;
+    }
+    
+    /* 🔽 МОДАЛЬНОЕ ОКНО */
+    .modal-content {
+        padding: 20px 16px !important;
+        border-radius: 12px;
+        width: 95%;
+        max-width: none;
+    }
+    
+    .modal-content h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .modal-content label {
+        font-size: 12px;
+        margin-bottom: 6px;
+        display: block;
+    }
+    
+    .modal-content input,
+    .modal-content select {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        min-height: 44px;
+        box-sizing: border-box;
+    }
+    
+    .modal-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .modal-buttons .btn,
+    .modal-buttons .btn-secondary {
+        width: 100%;
+        padding: 12px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+    
+    /* Пустые состояния */
+    .empty-state {
+        font-size: 13px;
+        text-align: center;
+        padding: 30px 20px;
+        color: #666;
+    }
+}

@@ -1,0 +1,328 @@
+/* ========================================
+   ЕДИНАЯ ШАПКА (одинаковая на всех страницах)
+   ======================================== */
+
+.catalog-header {
+    background-color: #ffffff;
+    padding: 20px 48px;
+    border-bottom: 1px solid #eee;
+}
+
+.catalog-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Логотип по центру */
+.catalog-header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.catalog-header__logo a {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 4px;
+}
+
+/* Язык */
+.catalog-header__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #000;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+/* Иконки */
+.catalog-header__icons {
+    display: flex;
+    gap: 18px;
+    color: #000;
+    align-items: center;
+}
+
+/* === НАВИГАЦИЯ (точно как в "О нас") === */
+.catalog-header__nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+}
+
+.catalog-header__nav a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Активный пункт — золотистый */
+.catalog-header__nav a.is-active {
+    color: #c9a66b;
+    font-weight: 600;
+}
+
+.catalog-header__nav a.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #c9a66b;
+}
+
+/* === ХЛЕБНЫЕ КРОШКИ === */
+.breadcrumb {
+    padding: 20px 48px;
+    background-color: #ffffff;
+}
+
+.breadcrumb .container {
+    max-width: 1152px;  /* ← ИЗМЕНЕНО С 1440px НА 1152px */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.breadcrumb a {
+    color: #000000;
+    text-decoration: none;
+}
+/* ====================== КОМПАКТНОЕ БУРГЕР-МЕНЮ ====================== */
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #000000;
+    cursor: pointer;
+    padding: 8px 15px;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 100%;               /* сразу под шапкой */
+    right: 15px;             /* справа */
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 15px 20px;
+    display: none;
+    z-index: 10000;
+    min-width: 220px;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu__icons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mobile-menu__icons .header-icon {
+    color: #ffffff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Показываем бургер на мобильных */
+@media (max-width: 800px) {
+    #desktopIcons {
+        display: none !important;
+    }
+    .burger-btn {
+        display: block !important;
+    }
+}
+/* ========================================
+   FAVORITES PAGE — ЭЛЕГАНТНЫЙ СТИЛЬ
+   ======================================== */
+
+.favorites-page {
+    background-color: #ffffff;
+    padding: 60px 0 100px;
+    min-height: 70vh;
+}
+
+.page-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    letter-spacing: 6px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--text-primary);
+}
+
+/* Пустое состояние */
+.favorites-empty {
+    text-align: center;
+    padding: 120px 20px 80px;
+    color: #666;
+    font-size: 18px;
+}
+
+.favorites-empty p {
+    margin-bottom: 30px;
+}
+
+.btn-continue {
+    display: inline-block;
+    padding: 16px 48px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-continue:hover {
+    background: #c9a66b;
+    transform: translateY(-2px);
+}
+
+/* Сетка избранного */
+.favorites-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.favorite-item {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.favorite-item:hover {
+    box-shadow: 0 12px 30px rgba(201, 166, 107, 0.15);
+    transform: translateY(-6px);
+}
+
+.favorite-item__image {
+    height: 240px;
+    overflow: hidden;
+}
+
+.favorite-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.favorite-item:hover .favorite-item__image img {
+    transform: scale(1.05);
+}
+
+.favorite-item__info {
+    padding: 20px;
+    text-align: center;
+}
+
+.favorite-item__info h3 {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.favorite-item__info p {
+    color: #c9a66b;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.favorite-item__remove {
+    background: none;
+    border: 1px solid #ddd;
+    color: #999;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.favorite-item__remove:hover {
+    background: #fee2e2;
+    color: #d32f2f;
+    border-color: #d32f2f;
+}
+/* Убираем подчёркивание у ссылок в избранном и делаем красиво */
+.favorite-item {
+    text-decoration: none !important;           /* убираем синюю линию */
+    color: inherit;
+    cursor: pointer;
+}
+
+.favorite-item h3,
+.favorite-item p {
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+}
+
+.favorite-item:hover h3 {
+    color: #c9a66b;   /* золотой акцент при наведении */
+}
+
+.favorite-item__remove {
+    text-decoration: none !important;
+}
+
+/* Делаем крестик ещё красивее */
+.favorite-item__remove:hover {
+    transform: scale(1.1);
+}
+/* Адаптив */
+@media (max-width: 768px) {
+    .favorites-page { padding: 40px 0 80px; }
+    .favorite-item__image { height: 200px; }
+}
+
+@media (max-width: 480px) {
+    .favorites-items { grid-template-columns: 1fr; }
+}
