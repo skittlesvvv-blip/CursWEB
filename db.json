@@ -13,11 +13,84 @@
   ],
   "products": [
     {
+      "id": "monica-small",
+      "name": "MONICA SMALL",
+      "category": "classic",
+      "size": "small",
+      "price": 179,
+      "img": "images/catalog/monica-small.jpg"
+    },
+    {
+      "id": "black",
+      "name": "BLACK",
+      "category": "classic",
+      "size": "medium",
+      "price": 219,
+      "img": "images/catalog/black-1.jpg"
+    },
+    {
+      "id": "blue-dark",
+      "name": "BLUE/DARK",
+      "category": "classic",
+      "size": "medium",
+      "price": 229,
+      "img": "images/catalog/blue-dark.jpg"
+    },
+    {
       "id": "monica-big",
       "name": "MONICA BIG",
+      "category": "printed",
+      "size": "big",
       "price": 199,
-      "image": "images/catalog/monica-big.jpg",
-      "category": "chic"
+      "img": "images/catalog/monica-big.jpg"
+    },
+    {
+      "id": "greta-medium",
+      "name": "GRETA MEDIUM",
+      "category": "printed",
+      "size": "medium",
+      "price": 229,
+      "img": "images/catalog/greta-medium.jpg"
+    },
+    {
+      "id": "blue-orange",
+      "name": "BLUE/ORANGE",
+      "category": "printed",
+      "size": "small",
+      "price": 239,
+      "img": "images/catalog/blue-orange.jpg"
+    },
+    {
+      "id": "leopard",
+      "name": "LEOPARD",
+      "category": "printed",
+      "size": "medium",
+      "price": 239,
+      "img": "images/catalog/leopard-1.jpg"
+    },
+    {
+      "id": "snake-1",
+      "name": "SNAKE #1",
+      "category": "printed",
+      "size": "small",
+      "price": 259,
+      "img": "images/catalog/snake-1.jpg"
+    },
+    {
+      "id": "snake-2",
+      "name": "SNAKE #2",
+      "category": "printed",
+      "size": "medium",
+      "price": 269,
+      "img": "images/catalog/snake-2.jpg"
+    },
+    {
+      "id": "snake-3",
+      "name": "SNAKE #3",
+      "category": "printed",
+      "size": "medium",
+      "price": 249,
+      "img": "images/catalog/snake-3.jpg"
     }
   ],
   "cart": [
@@ -31,10 +104,18 @@
           "image": "images/catalog/monica-big.jpg",
           "quantity": 1,
           "addedAt": "2026-06-04T14:57:09.146Z"
+        },
+        {
+          "productId": "monica-small",
+          "productName": "MONICA SMALL",
+          "price": 179,
+          "image": "images/catalog/monica-small.jpg",
+          "quantity": 1,
+          "addedAt": "2026-06-07T21:39:13.879Z"
         }
       ],
-      "updatedAt": "2026-06-06T15:58:03.057Z",
-      "id": "AFxEbzHgcOA"
+      "updatedAt": "2026-06-07T21:39:13.893Z",
+      "id": "OPZzuaLi9u8"
     }
   ],
   "favorites": [

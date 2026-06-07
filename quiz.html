@@ -218,142 +218,129 @@
 
 <!-- ✅ СКРИПТ КВИЗА (логика вопросов и ответов) -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     
-    // Данные товаров
-    const products = [
-        { id: "monica-small", name: "MONICA SMALL", category: "classic", size: "small", price: 179, img: "images/catalog/monica-small.jpg" },
-        { id: "black", name: "BLACK", category: "classic", size: "medium", price: 219, img: "images/catalog/black-1.jpg" },
-        { id: "blue-dark", name: "BLUE/DARK", category: "classic", size: "medium", price: 229, img: "images/catalog/blue-dark.jpg" },
-        { id: "monica-big", name: "MONICA BIG", category: "printed", size: "big", price: 199, img: "images/catalog/monica-big.jpg" },
-        { id: "greta-medium", name: "GRETA MEDIUM", category: "printed", size: "medium", price: 229, img: "images/catalog/greta-medium.jpg" },
-        { id: "blue-orange", name: "BLUE/ORANGE", category: "printed", size: "small", price: 239, img: "images/catalog/blue-orange.jpg" },
-        { id: "leopard", name: "LEOPARD", category: "printed", size: "medium", price: 239, img: "images/catalog/leopard-1.jpg" },
-        { id: "snake-1", name: "SNAKE #1", category: "printed", size: "small", price: 259, img: "images/catalog/snake-1.jpg" },
-        { id: "snake-2", name: "SNAKE #2", category: "printed", size: "medium", price: 269, img: "images/catalog/snake-2.jpg" },
-        { id: "snake-3", name: "SNAKE #3", category: "printed", size: "medium", price: 249, img: "images/catalog/snake-3.jpg" }
-    ];
-
+    let products = []; // ← Теперь массив пустой, данные придут с сервера
     let currentStep = 1;
     let answers = {};
 
-    // Показ нужного шага
-    function showStep(step) {
-        document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
-        document.getElementById('step' + step).classList.add('active');
-        document.getElementById('btnBack').style.display = step > 1 ? 'block' : 'none';
-        document.getElementById('progressFill').style.width = (step * 25) + '%';
+    // 1️⃣ ФУНКЦИЯ ЗАГРУЗКИ ТОВАРОВ С СЕРВЕРА
+    async function loadProducts() {
+        try {
+            // Запрос к твоему JSON Server
+            const res = await fetch('http://localhost:3000/products');
+            if (!res.ok) throw new Error('Сервер не ответил');
+            products = await res.json();
+            console.log(`✅ Загружено ${products.length} товаров из db.json`);
+        } catch (err) {
+            console.error('❌ Ошибка:', err);
+            // Если сервер выключен, покажем сообщение
+            const container = document.querySelector('.quiz-container');
+            if (container) {
+                container.innerHTML = `
+                    <p style="text-align:center; color:red; padding:40px;">
+                        ⚠️ Не удалось загрузить каталог.<br>
+                        Убедитесь, что запущен JSON Server:<br>
+                        <code>npx json-server --watch db.json</code>
+                    </p>`;
+            }
+        }
     }
 
-    // Фильтрация основных рекомендаций
-    function getMainRecommendations() {
-        let filtered = products.filter(p => p.category === answers.style);
+    // 2️⃣ ЛОГИКА КВИЗА (запускается ПОСЛЕ загрузки товаров)
+    function initQuiz() {
+        if (products.length === 0) return; // Если товаров нет — не запускаем
 
-        if (answers.size === 'small') {
-            filtered = filtered.filter(p => p.size === 'small' || p.size === 'medium');
-        } else if (answers.size === 'medium') {
-            filtered = filtered;
-        } else if (answers.size === 'big') {
-            filtered = filtered.filter(p => p.size === 'big' || p.size === 'medium');
+        function showStep(step) {
+            document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+            document.getElementById('btnBack').style.display = step > 1 ? 'block' : 'none';
+            document.getElementById('progressFill').style.width = (step * 25) + '%';
         }
 
-        if (answers.budget && answers.budget !== 'any') {
-            if (answers.budget === 'low') filtered = filtered.filter(p => p.price <= 200);
-            if (answers.budget === 'medium') filtered = filtered.filter(p => p.price >= 200 && p.price <= 250);
-            if (answers.budget === 'high') filtered = filtered.filter(p => p.price > 250);
+        function getMainRecommendations() {
+            let filtered = products.filter(p => p.category === answers.style);
+            if (answers.size === 'small') filtered = filtered.filter(p => p.size === 'small' || p.size === 'medium');
+            else if (answers.size === 'big') filtered = filtered.filter(p => p.size === 'big' || p.size === 'medium');
+            
+            if (answers.budget && answers.budget !== 'any') {
+                if (answers.budget === 'low') filtered = filtered.filter(p => p.price <= 200);
+                if (answers.budget === 'medium') filtered = filtered.filter(p => p.price >= 200 && p.price <= 250);
+                if (answers.budget === 'high') filtered = filtered.filter(p => p.price > 250);
+            }
+            return filtered.sort(() => Math.random() - 0.5).slice(0, 5);
         }
 
-        return filtered.sort(() => Math.random() - 0.5).slice(0, 5);
-    }
+        function getAdditionalRecommendations() {
+            const opposite = answers.style === 'classic' ? 'printed' : 'classic';
+            let filtered = products.filter(p => p.category === opposite);
+            if (answers.size === 'small') filtered = filtered.filter(p => p.size === 'medium');
+            if (answers.size === 'big') filtered = filtered.filter(p => p.size !== 'small');
+            return filtered.sort(() => Math.random() - 0.5).slice(0, 4);
+        }
 
-    // Фильтрация дополнительных рекомендаций
-    function getAdditionalRecommendations() {
-        const opposite = answers.style === 'classic' ? 'printed' : 'classic';
-        let filtered = products.filter(p => p.category === opposite);
+        function showResults() {
+            const mainContainer = document.getElementById('recommendedProducts');
+            const additionalContainer = document.getElementById('additionalProducts');
 
-        if (answers.size === 'small') filtered = filtered.filter(p => p.size === 'medium');
-        if (answers.size === 'medium') filtered = filtered;
-        if (answers.size === 'big') filtered = filtered.filter(p => p.size !== 'small');
+            let mainHtml = getMainRecommendations().map(item => `
+                <a href="product-${item.id}.html" class="result-card">
+                    <img src="${item.img}" alt="${item.name}">
+                    <div class="result-info">
+                        <div class="result-name">${item.name}</div>
+                        <div class="result-price">${item.price} BYN</div>
+                    </div>
+                </a>`).join('');
 
-        return filtered.sort(() => Math.random() - 0.5).slice(0, 4);
-    }
+            let additionalHtml = getAdditionalRecommendations().map(item => `
+                <a href="product-${item.id}.html" class="result-card">
+                    <img src="${item.img}" alt="${item.name}">
+                    <div class="result-info">
+                        <div class="result-name">${item.name}</div>
+                        <div class="result-price">${item.price} BYN</div>
+                    </div>
+                </a>`).join('');
 
-    // Показ результатов
-    function showResults() {
-        const mainContainer = document.getElementById('recommendedProducts');
-        const additionalContainer = document.getElementById('additionalProducts');
+            mainContainer.innerHTML = mainHtml || '<p style="grid-column:1/-1;text-align:center;padding:30px;">По вашим параметрам ничего не найдено</p>';
+            additionalContainer.innerHTML = additionalHtml;
 
-        const mainRecs = getMainRecommendations();
-        const additionalRecs = getAdditionalRecommendations();
+            document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+            document.getElementById('resultStep').classList.add('active');
+            document.getElementById('btnBack').style.display = 'block';
+        }
 
-        let mainHtml = '';
-        mainRecs.forEach(item => {
-            mainHtml += `
-            <a href="product-${item.id}.html" class="result-card">
-                <img src="${item.img}" alt="${item.name}">
-                <div class="result-info">
-                    <div class="result-name">${item.name}</div>
-                    <div class="result-price">${item.price} BYN</div>
-                </div>
-            </a>`;
+        // Кнопка "Далее"
+        document.getElementById('btnNext').addEventListener('click', () => {
+            const activeStep = document.querySelector('.quiz-step.active');
+            const selected = activeStep.querySelector('.quiz-option.selected');
+            if (selected) {
+                if (activeStep.id === 'step2') answers.style = selected.dataset.value;
+                else if (activeStep.id === 'step3') answers.size = selected.dataset.value;
+                else if (activeStep.id === 'step4') answers.budget = selected.dataset.value;
+            }
+            if (currentStep < 4) { currentStep++; showStep(currentStep); } 
+            else { showResults(); }
         });
-        mainContainer.innerHTML = mainHtml || '<p style="grid-column:1/-1;text-align:center;padding:30px;">По вашим параметрам ничего не найдено</p>';
 
-        let additionalHtml = '';
-        additionalRecs.forEach(item => {
-            additionalHtml += `
-            <a href="product-${item.id}.html" class="result-card">
-                <img src="${item.img}" alt="${item.name}">
-                <div class="result-info">
-                    <div class="result-name">${item.name}</div>
-                    <div class="result-price">${item.price} BYN</div>
-                </div>
-            </a>`;
+        // Кнопка "Назад"
+        document.getElementById('btnBack').addEventListener('click', () => {
+            if (currentStep > 1) { currentStep--; showStep(currentStep); }
         });
-        additionalContainer.innerHTML = additionalHtml;
 
-        document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
-        document.getElementById('resultStep').classList.add('active');
-        document.getElementById('btnBack').style.display = 'block';
+        // Выбор опции
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('quiz-option')) {
+                e.target.parentElement.querySelectorAll('.quiz-option').forEach(el => el.classList.remove('selected'));
+                e.target.classList.add('selected');
+            }
+        });
+
+        showStep(1);
     }
 
-    // Кнопка "Далее"
-    document.getElementById('btnNext').addEventListener('click', () => {
-        const activeStep = document.querySelector('.quiz-step.active');
-        const selected = activeStep.querySelector('.quiz-option.selected');
-
-        if (selected) {
-            if (activeStep.id === 'step2') answers.style = selected.dataset.value;
-            else if (activeStep.id === 'step3') answers.size = selected.dataset.value;
-            else if (activeStep.id === 'step4') answers.budget = selected.dataset.value;
-        }
-
-        if (currentStep < 4) {
-            currentStep++;
-            showStep(currentStep);
-        } else {
-            showResults();
-        }
-    });
-
-    // Кнопка "Назад"
-    document.getElementById('btnBack').addEventListener('click', () => {
-        if (currentStep > 1) {
-            currentStep--;
-            showStep(currentStep);
-        }
-    });
-
-    // Выбор опции (клик по варианту ответа)
-    document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('quiz-option')) {
-            const parent = e.target.parentElement;
-            parent.querySelectorAll('.quiz-option').forEach(el => el.classList.remove('selected'));
-            e.target.classList.add('selected');
-        }
-    });
-
-    console.log('[SCÀLA Quiz] ✅ Инициализирован');
+    // 🚀 ГЛАВНЫЙ ЗАПУСК: сначала грузим данные, потом рисуем квиз
+    await loadProducts();
+    initQuiz();
 });
 </script>
 </body>
